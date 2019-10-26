@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Use this area to provide additional information.</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:2008/api/products",
+        async: true,
+        cache: false,
+        crossDomain: true,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (responseData, textStatus, jqXHR) {
+            var value = responseData;
+        },
+        error: function (responseData, textStatus, errorThrown) {
+            alert('Error');
+        }
+    });
+
+</script>
