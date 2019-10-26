@@ -1,0 +1,48 @@
+﻿@model FinanceManager.Domain.Entities.Income
+
+@{
+    ViewBag.Title = "Edytuj przychód";
+    Layout = "~/Views/Shared/_LayoutNoNav.cshtml";
+}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h4>Edytuj przychód</h4>
+        @using (Html.BeginForm("Edit", "Income"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.IncomeID)
+            foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.PropertyName != "IncomeID")
+                {
+                    <div class="form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @if (property.PropertyName == "Description")
+                        {
+                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 2 })
+                        }
+                        else if (property.PropertyName == "Category")
+                        {
+                            @Html.DropDownListFor(m => m.Category, null, htmlAttributes: new { @class = "form-control" })
+                        }
+                        else if (property.PropertyName == "Date")
+                        {
+                            @Html.EditorFor(m => m.Date, new { htmlAttributes = new { @class = "form-control" } })
+                        }
+                        else
+                        {
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control", data_val_number = "Podaj prawidłową wartość!" })
+                        }
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                }
+            }
+
+            <div class="panel-footer">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+                @Html.ActionLink("Anuluj i wróć do listy", "Index", null, new { @class = "btn btn-link" })
+            </div>
+        }
+    </div>
+</div>
+

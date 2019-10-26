@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NorthwindMvc5.Areas.Administration.Models.CategoryModel>
+
+@using NorthwindMvc5.Resources;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink(CategoryResource.CreateNew, "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink(CategoryResource.Edit, "Edit", new { id = item.CategoryID }) |
+            @Html.ActionLink(CategoryResource.Details, "Details", new { id = item.CategoryID }) |
+            @Html.ActionLink(CategoryResource.Delete, "Delete", new { id = item.CategoryID })
+        </td>
+    </tr>
+}
+
+</table>

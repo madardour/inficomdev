@@ -1,0 +1,157 @@
+﻿<h2>Create Order</h2>
+
+<div class="alert alert-danger" role="alert" ng-show="vm.result.didError">
+    {{ vm.result.errorMessage }}
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Customer</label>
+                <select class="form-control list-box tri-state" ng-model="vm.order.customerID">
+                    <option ng-repeat="c in vm.customerResult.model | orderBy: 'companyName'" value="{{ c.customerID }}">{{ c.companyName }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Employee</label>
+                <select class="form-control list-box tri-state" ng-model="vm.order.employeeID">
+                    <option ng-repeat="e in vm.employeeResult.model | orderBy: 'fullName'" value="{{ e.employeeID }}">{{ e.fullName }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Required Date</label>
+                <input type="text" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Shipper</label>
+                <select class="form-control list-box tri-state" ng-model="vm.order.shipVia">
+                    <option ng-repeat="s in vm.shipperResult.model | orderBy: 'companyName'" value="{{ s.shipperID }}">{{ s.companyName }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Shipping</h3>
+
+<table class="table">
+    <tr>
+        <td>
+            <label class="control-label">Ship name</label>
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="vm.order.shipName" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="control-label">Ship address</label>
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="vm.order.shipAddress" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="control-label">Ship city</label>
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="vm.order.shipCity" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="control-label">Ship region</label>
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="vm.order.shipRegion" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="control-label">Ship postal code</label>
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="vm.order.shipPostalCode" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="control-label">Ship country</label>
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="vm.order.shipCountry" />
+        </td>
+    </tr>
+</table>
+
+<br />
+
+<h3>Add Product</h3>
+
+<div class="form-inline">
+    <div class="form-group">
+        
+        <select class="form-control tri-state" ng-model="vm.product">
+            <option ng-repeat="p in vm.productResult.model | orderBy: 'productName'" value="{{ p.productID }}">{{ p.productName }}</option>
+        </select>
+    </div>
+
+    <button type="button" class="btn btn-default" ng-click="vm.add()">+</button>
+</div>
+
+<br />
+
+<h3>Details</h3>
+
+<table class="table">
+    <tr>
+        <th class="text-center">
+            Product name
+        </th>
+        <th class="text-center">
+            Unit price
+        </th>
+        <th class="text-center">
+            Quantity
+        </th>
+        <th class="text-center">
+            Total
+        </th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="detail in vm.order.orderSummaries">
+        <td>
+            {{ detail.productName }}
+        </td>
+        <td class="text-right">
+            {{ detail.unitPrice | currency }}
+        </td>
+        <td>
+            <input type="text" class="form-control input-sm text-right" style="width: 100px;" ng-model="detail.quantity" />
+        </td>
+        <td class="text-right">
+            {{ detail.total() | currency }}
+        </td>
+        <td class="text-center">
+            <a ng-click="vm.remove($index)">Remove</a>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="text-right">
+            {{ vm.order.total() | currency }}
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<div>
+    <button type="button" class="btn btn-primary" ng-click="vm.create()" ng-disabled="vm.order.orderSummaries.length == 0">Create Order</button>
+</div>

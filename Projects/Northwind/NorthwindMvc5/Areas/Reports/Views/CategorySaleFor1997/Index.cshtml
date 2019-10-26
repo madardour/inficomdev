@@ -1,0 +1,42 @@
+﻿@model IEnumerable<NorthwindMvc5.Areas.Reports.Models.CategorySaleFor1997Model>
+
+@{
+    ViewBag.Title = "Category Sale For 1997";
+}
+
+<h2>Category Sale For 1997</h2>
+
+<br />
+
+<div>
+    Export
+        <a href="@Url.Action("Export", new { id = "Excel" })">Excel</a>
+        |
+        <a href="@Url.Action("Export", new { id = "PDF" })">PDF</a>
+</div>
+
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategorySales)
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategorySales)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,97 @@
+﻿<h2>Orders</h2>
+
+<div class="alert alert-danger" role="alert" ng-show="result.didError">
+    {{ result.errorMessage }}
+</div>
+
+<p>
+    <a ng-click="vm.create()">Create new</a>
+</p>
+
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <form class="form-inline" role="form" method="get">
+            <div class="form-group">
+                <input type="text" class="form-control input-sm" style="width: 100px;" placeholder="Start" ng-model="vm.start" datepicker-popup="{{ vm.s.format }}" is-open="vm.s.opened" datepicker-options="vm.s.dateOptions" date-disabled="vm.s.disabled(vm.s.date, vm.s.mode)" current-text="{{ vm.s.currentText }}" clear-text="{{ vm.s.clearText }}" close-text="{{ vm.s.closeText }}" />
+                <button type="button" class="btn btn-default btn-sm" ng-click="vm.s.open($event);">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+
+                <input type="text" class="form-control input-sm" style="width: 100px;" placeholder="End" ng-model="vm.end" datepicker-popup="{{ vm.e.format }}" is-open="vm.e.opened" datepicker-options="vm.e.dateOptions" date-disabled="vm.e.disabled(vm.e.date, vm.e.mode)" current-text="{{ vm.e.currentText }}" clear-text="{{ vm.e.clearText }}" close-text="{{ vm.e.closeText }}" />
+                <button type="button" class="btn btn-default btn-sm" ng-click="vm.e.open($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="orderID" size="5" class="form-control" placeholder="Order #" ng-model="vm.orderID" />
+            </div>
+            <div class="form-group">
+                <select class="form-control" ng-model="vm.customerID">
+                    <option ng-repeat="customer in vm.customerResult.model" value="{{ customer.customerID }}">{{ customer.companyName }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" ng-model="vm.employeeID">
+                    <option ng-repeat="employee in vm.employeeResult.model" value="{{ employee.employeeID }}">{{ employee.fullName }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" ng-model="vm.shipperID">
+                    <option ng-repeat="shipper in vm.shipperResult.model" value="{{ shipper.shipperID }}">{{ shipper.companyName }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary glyphicon glyphicon-search" ng-click="vm.search()" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="alert alert-info" role="alert" ng-show="vm.result.model.length > 0">
+    <strong>{{ vm.result.message }}</strong>
+</div>
+
+<table class="table" ng-table="vm.tableParams">
+    <tr ng-repeat="order in $data">
+        <td data-title="'Order #'" sortable="'orderID'">
+            {{ order.orderID }}
+        </td>
+        <td data-title="'Date'" sortable="'orderDate'">
+            {{ order.orderDate | date: "dd/MM/yyyy" }}
+        </td>
+        <td data-title="'Customer'" sortable="'customerName'">
+            {{ order.customerName }}
+        </td>
+        <td data-title="'Employee'" sortable="'employeeName'">
+            {{ order.employeeName }}
+        </td>
+        <td data-title="'Shipper'" sortable="'shipperName'">
+            {{ order.shipperName }}
+        </td>
+        <td class="text-right" data-title="'Lines'" sortable="'lines'">
+            {{ order.lines }}
+        </td>
+        <td class="text-right" data-title="'Total'" sortable="'total'">
+            {{ order.total | currency }}
+        </td>
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="vm.edit(order)">Edit</a></li>
+                    <li><a ng-click="vm.details(order)">Details</a></li>
+                    <li><a ng-click="vm.delete(order)">Delete</a></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3e96892f80e14cccb7d1469856073bb8" Name="Diagram1">
+        <EntityTypeShape EntityType="uwv_bravo_omModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Address" Width="1.5" PointX="3" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.AddressCategory" Width="1.5" PointX="0.75" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.AddressType" Width="1.5" PointX="0.75" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.AosCode" Width="1.5" PointX="15.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.ArbeidsVerleden" Width="1.5" PointX="12.75" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.AuthorizedAction" Width="1.5" PointX="15.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.BravoDocument" Width="1.5" PointX="12.75" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Case" Width="1.5" PointX="10.5" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.CbbsResult" Width="1.5" PointX="15" PointY="59.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.CbsIndex" Width="1.5" PointX="13.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.CbsIndexIkv" Width="1.5" PointX="17.25" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Client" Width="1.5" PointX="0.75" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.CustomTextBlock" Width="1.5" PointX="8.25" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.DiagnoseCode" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.DiagnoseCodeSection" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.DocumentHistory" Width="1.5" PointX="18" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.DocumentType" Width="1.5" PointX="8.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.DocumentVariable" Width="1.5" PointX="15" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.EndUser" Width="1.5" PointX="6" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.GegevensPeriode" Width="1.5" PointX="17.25" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.HerindexeringMaatman" Width="1.5" PointX="15.75" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.InkomstenOpgave" Width="1.5" PointX="17.25" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.InkomstenVerhouding" Width="1.5" PointX="15" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.InkomstenVerhoudingenSet" Width="1.5" PointX="12.75" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.LaunchCode" Width="1.5" PointX="8.25" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.MaatManLoon" Width="1.5" PointX="17.25" PointY="57" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.MaatManResultaat" Width="1.5" PointX="15" PointY="66.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.MedischeBeperking" Width="1.5" PointX="12.75" PointY="56.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.MqMessagesEAED" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.MqMessagesMisDb" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Office" Width="1.5" PointX="5.25" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.OorzaakCode" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Popup" Width="1.5" PointX="15" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.PopupText" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.PopupTree" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.PraktischeVerdienCapaciteitResultaat" Width="1.5" PointX="15" PointY="68.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.PrivateAutocorrectList" Width="1.5" PointX="8.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.ProcessOrLaw" Width="1.5" PointX="5.25" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Product" Width="1.5" PointX="7.5" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Role" Width="1.5" PointX="3.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.RoleAuthorizedActions" Width="1.5" PointX="18" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.Template" Width="1.5" PointX="10.5" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.TextBlock" Width="1.5" PointX="15" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.TheoretischeVerdienCapaciteit" Width="1.5" PointX="12.75" PointY="59.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.UserSetting" Width="1.5" PointX="8.25" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.WerkgeverGegevens" Width="1.5" PointX="12.75" PointY="48.125" IsExpanded="true" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Address_dbo_AddressCategory_AddressCategoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Address_dbo_AddressType_AddressTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Address_dbo_Client_Client_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_ProcessOrLaw_dbo_Address_LawReplyAddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_AosCode_dbo_LaunchCode_LaunchCodeId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_AosCode_dbo_Template_TemplateId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_ArbeidsVerleden_dbo_Case_Case_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_DocumentHistory_dbo_AuthorizedAction_AuthorizedActionId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_RoleAuthorizedActions_dbo_AuthorizedAction_AuthorizedActionId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_BravoDocument_dbo_Case_CaseId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_BravoDocument_dbo_Template_TemplateId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_DocumentHistory_dbo_BravoDocument_BravoDocument_DocumentId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_DocumentVariable_dbo_BravoDocument_BravoDocument_DocumentId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Popup_dbo_BravoDocument_DocumentId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_TextBlock_dbo_BravoDocument_BravoDocument_DocumentId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Case_dbo_Client_ClientId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Case_dbo_LaunchCode_LaunchCodeId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Case_dbo_Office_OfficeId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Case_dbo_ProcessOrLaw_ProcessOrLawId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Case_dbo_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_HerindexeringMaatman_dbo_Case_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_InkomstenVerhoudingenSet_dbo_Case_CaseId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_MedischeBeperking_dbo_Case_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_TheoretischeVerdienCapaciteit_dbo_Case_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_CbbsResult_dbo_TheoretischeVerdienCapaciteit_TheoretischeVerdienCapaciteitId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_HerindexeringMaatman_dbo_CbsIndex_CbsIndexHuidigId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_CbsIndexIkv_dbo_InkomstenVerhouding_InkomstenVerhoudingId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_CustomTextBlock_dbo_EndUser_EndUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_DiagnoseCode_dbo_DiagnoseCodeSection_DiagnoseCodeSectionId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_DocumentHistory_dbo_EndUser_EndUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_RoleAuthorizedActions_dbo_DocumentType_DocumentTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Template_dbo_DocumentType_BRaVoDocumentTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_EndUser_dbo_Role_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_PrivateAutocorrectList_dbo_EndUser_EndUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_UserSetting_dbo_EndUser_EndUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_GegevensPeriode_dbo_InkomstenVerhouding_InkomstenVerhoudingId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_InkomstenOpgave_dbo_InkomstenVerhouding_InkomstenVerhoudingId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_InkomstenVerhouding_dbo_InkomstenVerhoudingenSet_InkomstenVerhoudingenSetId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_InkomstenVerhouding_dbo_WerkgeverGegevens_WerkgeverGegevensId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_MaatManLoon_dbo_InkomstenVerhouding_MaatManLoonId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_MaatManResultaat_dbo_InkomstenVerhoudingenSet_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_PraktischeVerdienCapaciteitResultaat_dbo_InkomstenVerhoudingenSet_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Product_dbo_LaunchCode_LaunchCodeId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Product_dbo_ProcessOrLaw_ProcessOrLawId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_RoleAuthorizedActions_dbo_Role_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_Template_dbo_Template_DerivedTemplate_TemplateId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_DerivedTemplateId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.FK_dbo_TextBlock_dbo_TextBlock_TextBlock_TextBlockId" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.EndUserClient" ManuallyRouted="false" />
+        <AssociationConnector Association="uwv_bravo_omModel.OfficeAddresses" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="uwv_bravo_omModel.zTest" Width="1.5" PointX="5.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

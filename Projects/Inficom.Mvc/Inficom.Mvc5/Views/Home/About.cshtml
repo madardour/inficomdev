@@ -1,0 +1,28 @@
+﻿@using Microsoft.Security.Application
+@{
+    /**/
+
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <h2 id="welcome-message"></h2>
+</div>
+
+@section scripts {
+    @if (ViewBag.Name != null)
+    {
+        <script type="text/javascript">
+        $(function () {
+        @*var msg = 'Welcome, @Encoder.JavaScriptEncode(ViewBag.UserName, false)!';*@
+        var msg = 'Welcome, @ViewBag.Name!';
+        $("#welcome-message").html(msg).hide().show('slow');
+        });
+        </script>
+    }
+}

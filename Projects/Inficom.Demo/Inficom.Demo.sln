@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DD42CA34-AF87-44B2-84C1-03384E379A92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{344C1E33-1673-40DC-AE22-C73A691F383D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AD922659-45E6-47DC-8E37-0D4699B530C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inficom.Demo.Data", "Inficom.Demo.Data\Inficom.Demo.Data.csproj", "{8203B63A-26DE-4544-B7EB-D985583FD664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InficomDemoDomain", "InficomDemoDomain\InficomDemoDomain.csproj", "{374D664A-F516-4A6F-A2A0-C170CF33D091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InficomDemoServices", "InficomDemoServices\InficomDemoServices.csproj", "{026DC08C-DCA9-44C2-9A30-49FDF3A58826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inficom.Demo.Api", "Inficom.Demo.Api\Inficom.Demo.Api.csproj", "{DFC2F031-82EB-48E8-B3DD-29E9C852D14C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8203B63A-26DE-4544-B7EB-D985583FD664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8203B63A-26DE-4544-B7EB-D985583FD664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8203B63A-26DE-4544-B7EB-D985583FD664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8203B63A-26DE-4544-B7EB-D985583FD664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374D664A-F516-4A6F-A2A0-C170CF33D091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374D664A-F516-4A6F-A2A0-C170CF33D091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{374D664A-F516-4A6F-A2A0-C170CF33D091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374D664A-F516-4A6F-A2A0-C170CF33D091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026DC08C-DCA9-44C2-9A30-49FDF3A58826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026DC08C-DCA9-44C2-9A30-49FDF3A58826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026DC08C-DCA9-44C2-9A30-49FDF3A58826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026DC08C-DCA9-44C2-9A30-49FDF3A58826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFC2F031-82EB-48E8-B3DD-29E9C852D14C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC2F031-82EB-48E8-B3DD-29E9C852D14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC2F031-82EB-48E8-B3DD-29E9C852D14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC2F031-82EB-48E8-B3DD-29E9C852D14C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8203B63A-26DE-4544-B7EB-D985583FD664} = {DD42CA34-AF87-44B2-84C1-03384E379A92}
+		{374D664A-F516-4A6F-A2A0-C170CF33D091} = {DD42CA34-AF87-44B2-84C1-03384E379A92}
+		{026DC08C-DCA9-44C2-9A30-49FDF3A58826} = {DD42CA34-AF87-44B2-84C1-03384E379A92}
+		{DFC2F031-82EB-48E8-B3DD-29E9C852D14C} = {DD42CA34-AF87-44B2-84C1-03384E379A92}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77AB0A38-465B-43FD-80B0-4AE2B82CA1AD}
+	EndGlobalSection
+EndGlobal

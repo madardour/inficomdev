@@ -1,0 +1,18 @@
+﻿@model FinanceManager.Domain.Entities.Details
+@{
+    ViewBag.Title = "Szczegółowa analiza" + Model.Coniugation;
+    Layout = null;
+}
+
+<div><h4>Analiza @Model.Coniugation wg kategorii</h4></div>
+
+<table class="table">
+    <tr><th>Kategoria</th><th>Łączna suma kategorii</th><th>Ilość @Model.Coniugation w kategorii</th><th>% wszystkich @Model.Coniugation</th></tr>
+    @foreach (var item in Model.DetailedList)
+    {
+        <tr>
+            <td>@item.Item1</td><td class="text-center">@item.Item2.ToString("c")</td><td class="text-center">@item.Item3</td><td class="text-center">@item.Item4</td>
+        </tr>
+
+    }
+</table>

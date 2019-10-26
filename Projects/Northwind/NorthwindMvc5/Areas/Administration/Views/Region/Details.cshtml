@@ -1,0 +1,28 @@
+﻿@model NorthwindMvc5.Areas.Administration.Models.RegionModel
+
+@using NorthwindMvc5.Resources;
+
+@{
+    ViewBag.Title = RegionResource.Details;
+}
+
+<h2>@RegionResource.Details</h2>
+
+<div>
+    <h4>@RegionResource.Region</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(RegionResource.Edit, "Edit", new { id = Model.RegionID }) |
+    @Html.ActionLink(RegionResource.BackToList, "Index")
+</p>

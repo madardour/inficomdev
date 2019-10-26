@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="uwv_bravo_omModelStoreContainer" CdmEntityContainer="BravoContext">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Address">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AddressCategoryId" ColumnName="AddressCategoryId" />
+          <ScalarProperty Name="AddressTypeId" ColumnName="AddressTypeId" />
+          <ScalarProperty Name="AddressTyp" ColumnName="AddressTyp" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Residence" ColumnName="Residence" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="HouseNumberCharacterAddition" ColumnName="HouseNumberCharacterAddition" />
+          <ScalarProperty Name="HouseNumberAddition" ColumnName="HouseNumberAddition" />
+          <ScalarProperty Name="Postaddress" ColumnName="Postaddress" />
+          <ScalarProperty Name="EmployerContactname" ColumnName="EmployerContactname" />
+          <ScalarProperty Name="IdcdNraanduiding" ColumnName="IdcdNraanduiding" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddressCategory">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.AddressCategory">
+        <MappingFragment StoreEntitySet="AddressCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddressType">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.AddressType">
+        <MappingFragment StoreEntitySet="AddressType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AosCode">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.AosCode">
+        <MappingFragment StoreEntitySet="AosCode">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LaunchCodeId" ColumnName="LaunchCodeId" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="CdClassificatie" ColumnName="CdClassificatie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArbeidsVerleden">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.ArbeidsVerleden">
+        <MappingFragment StoreEntitySet="ArbeidsVerleden">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DatumBegin" ColumnName="DatumBegin" />
+          <ScalarProperty Name="DatumEinde" ColumnName="DatumEinde" />
+          <ScalarProperty Name="Functie" ColumnName="Functie" />
+          <ScalarProperty Name="Urenperweek" ColumnName="Urenperweek" />
+          <ScalarProperty Name="LoonHeffingenNummer" ColumnName="LoonHeffingenNummer" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Selected" ColumnName="Selected" />
+          <ScalarProperty Name="Case_Id" ColumnName="Case_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorizedAction">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.AuthorizedAction">
+        <MappingFragment StoreEntitySet="AuthorizedAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BravoDocument">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.BravoDocument">
+        <MappingFragment StoreEntitySet="BravoDocument">
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="DocumentXmlVariables" ColumnName="DocumentXmlVariables" />
+          <ScalarProperty Name="DocumentXmlStructure" ColumnName="DocumentXmlStructure" />
+          <ScalarProperty Name="MwsProcessId" ColumnName="MwsProcessId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="LastSaved" ColumnName="LastSaved" />
+          <ScalarProperty Name="LastSavedByUserId" ColumnName="LastSavedByUserId" />
+          <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
+          <ScalarProperty Name="IsContraSigned" ColumnName="IsContraSigned" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="HasBeenSaved" ColumnName="HasBeenSaved" />
+          <ScalarProperty Name="IsDerivedFrom" ColumnName="IsDerivedFrom" />
+          <ScalarProperty Name="ReferenceToRootDoc" ColumnName="ReferenceToRootDoc" />
+          <ScalarProperty Name="Document" ColumnName="Document" />
+          <ScalarProperty Name="PdcManVarXml" ColumnName="PdcManVarXml" />
+          <ScalarProperty Name="LockedBySession" ColumnName="LockedBySession" />
+          <ScalarProperty Name="LockedByUser" ColumnName="LockedByUser" />
+          <ScalarProperty Name="HtmlDocument" ColumnName="HtmlDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Case">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Case">
+        <MappingFragment StoreEntitySet="Case">
+          <ScalarProperty Name="PeildatumArbeidsVerleden" ColumnName="PeildatumArbeidsVerleden" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SimCasusId" ColumnName="SimCasusId" />
+          <ScalarProperty Name="FlowerCaseId" ColumnName="FlowerCaseId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="ProcessOrLawId" ColumnName="ProcessOrLawId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="SuwiCode" ColumnName="SuwiCode" />
+          <ScalarProperty Name="Gemeentenaam" ColumnName="Gemeentenaam" />
+          <ScalarProperty Name="Gemeentecode" ColumnName="Gemeentecode" />
+          <ScalarProperty Name="DatumOntvangstAanvraag" ColumnName="DatumOntvangstAanvraag" />
+          <ScalarProperty Name="TeamNummer" ColumnName="TeamNummer" />
+          <ScalarProperty Name="DatAfsluitenSmf" ColumnName="DatAfsluitenSmf" />
+          <ScalarProperty Name="DatEDoelbinding" ColumnName="DatEDoelbinding" />
+          <ScalarProperty Name="IndTenOnrechteOpgevoerd" ColumnName="IndTenOnrechteOpgevoerd" />
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="UpaSuccesfull" ColumnName="UpaSuccesfull" />
+          <ScalarProperty Name="EersteAoDag" ColumnName="EersteAoDag" />
+          <ScalarProperty Name="DatumEWT" ColumnName="DatumEWT" />
+          <ScalarProperty Name="IndicatieHerbeoordeling" ColumnName="IndicatieHerbeoordeling" />
+          <ScalarProperty Name="IndCasusBzInternationaal" ColumnName="IndCasusBzInternationaal" />
+          <ScalarProperty Name="VraagstellingAanvullend" ColumnName="VraagstellingAanvullend" />
+          <ScalarProperty Name="OmsProductcd" ColumnName="OmsProductcd" />
+          <ScalarProperty Name="VraagstellingVA" ColumnName="VraagstellingVA" />
+          <ScalarProperty Name="VraagstellingAD" ColumnName="VraagstellingAD" />
+          <ScalarProperty Name="LaunchCodeId" ColumnName="LaunchCodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CbbsResult">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.CbbsResult">
+        <MappingFragment StoreEntitySet="CbbsResult">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TheoretischeVerdienCapaciteitId" ColumnName="TheoretischeVerdienCapaciteitId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="MediaanUurloon" ColumnName="MediaanUurloon" />
+          <ScalarProperty Name="ReductieFactor" ColumnName="ReductieFactor" />
+          <ScalarProperty Name="NumberOfJobs" ColumnName="NumberOfJobs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CbsIndex">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.CbsIndex">
+        <MappingFragment StoreEntitySet="CbsIndex">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="IndexBaseYear" ColumnName="IndexBaseYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CbsIndexIkv">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.CbsIndexIkv">
+        <MappingFragment StoreEntitySet="CbsIndexIkv">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CbsIndexType" ColumnName="CbsIndexType" />
+          <ScalarProperty Name="InkomstenVerhoudingId" ColumnName="InkomstenVerhoudingId" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="IndexBaseYear" ColumnName="IndexBaseYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Bsn" ColumnName="Bsn" />
+          <ScalarProperty Name="Voornamen" ColumnName="Voornamen" />
+          <ScalarProperty Name="Voorletters" ColumnName="Voorletters" />
+          <ScalarProperty Name="Voorvoegsel" ColumnName="Voorvoegsel" />
+          <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+          <ScalarProperty Name="GeboorteDatum" ColumnName="GeboorteDatum" />
+          <ScalarProperty Name="Geslacht" ColumnName="Geslacht" />
+          <ScalarProperty Name="CdAanduidingNaamgebruik" ColumnName="CdAanduidingNaamgebruik" />
+          <ScalarProperty Name="VoorvoegselEchtgenoot" ColumnName="VoorvoegselEchtgenoot" />
+          <ScalarProperty Name="AchternaamEchtgenoot" ColumnName="AchternaamEchtgenoot" />
+          <ScalarProperty Name="Woonplaats" ColumnName="Woonplaats" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomTextBlock">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.CustomTextBlock">
+        <MappingFragment StoreEntitySet="CustomTextBlock">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EndUserId" ColumnName="EndUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CustomUserText" ColumnName="CustomUserText" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="InsertUser" ColumnName="InsertUser" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiagnoseCode">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.DiagnoseCode">
+        <MappingFragment StoreEntitySet="DiagnoseCode">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+          <ScalarProperty Name="DiagnoseCodeSectionId" ColumnName="DiagnoseCodeSectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiagnoseCodeSection">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.DiagnoseCodeSection">
+        <MappingFragment StoreEntitySet="DiagnoseCodeSection">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentHistory">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.DocumentHistory">
+        <MappingFragment StoreEntitySet="DocumentHistory">
+          <ScalarProperty Name="DocumentHistoryId" ColumnName="DocumentHistoryId" />
+          <ScalarProperty Name="BravoDocumentId" ColumnName="BravoDocumentId" />
+          <ScalarProperty Name="EndUserId" ColumnName="EndUserId" />
+          <ScalarProperty Name="AuthorizedActionId" ColumnName="AuthorizedActionId" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="BravoDocument_DocumentId" ColumnName="BravoDocument_DocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentType">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentType">
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AbbreviationPDC" ColumnName="AbbreviationPDC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentVariable">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.DocumentVariable">
+        <MappingFragment StoreEntitySet="DocumentVariable">
+          <ScalarProperty Name="DocumentVariableId" ColumnName="DocumentVariableId" />
+          <ScalarProperty Name="DocumentVariableName" ColumnName="DocumentVariableName" />
+          <ScalarProperty Name="DocumentVariableIdFromModus" ColumnName="DocumentVariableIdFromModus" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Mask" ColumnName="Mask" />
+          <ScalarProperty Name="ValuehelpName" ColumnName="ValuehelpName" />
+          <ScalarProperty Name="ValuehelpSystem" ColumnName="ValuehelpSystem" />
+          <ScalarProperty Name="ValuehelpType" ColumnName="ValuehelpType" />
+          <ScalarProperty Name="InputEnabled" ColumnName="InputEnabled" />
+          <ScalarProperty Name="DataLink" ColumnName="DataLink" />
+          <ScalarProperty Name="DataAttribute" ColumnName="DataAttribute" />
+          <ScalarProperty Name="InputRequired" ColumnName="InputRequired" />
+          <ScalarProperty Name="BravoDocument_DocumentId" ColumnName="BravoDocument_DocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EndUser">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.EndUser">
+        <MappingFragment StoreEntitySet="EndUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PuikId" ColumnName="PuikId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AD_DisplayName" ColumnName="AD_DisplayName" />
+          <ScalarProperty Name="AD_SurName" ColumnName="AD_SurName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GegevensPeriode">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.GegevensPeriode">
+        <MappingFragment StoreEntitySet="GegevensPeriode">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InkomstenVerhoudingId" ColumnName="InkomstenVerhoudingId" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="InkomstenVermindering" ColumnName="InkomstenVermindering" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HerindexeringMaatman">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.HerindexeringMaatman">
+        <MappingFragment StoreEntitySet="HerindexeringMaatman">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CbsIndexHuidigId" ColumnName="CbsIndexHuidigId" />
+          <ScalarProperty Name="MaatmanUurloonHistory" ColumnName="MaatmanUurloonHistory" />
+          <ScalarProperty Name="MaatmanUurloonGeherindexeerd" ColumnName="MaatmanUurloonGeherindexeerd" />
+          <ScalarProperty Name="UrenomvangMaatmanPerWeek" ColumnName="UrenomvangMaatmanPerWeek" />
+          <ScalarProperty Name="IndicatieTussenMaatman" ColumnName="IndicatieTussenMaatman" />
+          <ScalarProperty Name="BedragTussenMaatman" ColumnName="BedragTussenMaatman" />
+          <ScalarProperty Name="IndexcijferHistory" ColumnName="IndexcijferHistory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InkomstenOpgave">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.InkomstenOpgave">
+        <MappingFragment StoreEntitySet="InkomstenOpgave">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InkomstenVerhoudingId" ColumnName="InkomstenVerhoudingId" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="AantSvDagen" ColumnName="AantSvDagen" />
+          <ScalarProperty Name="AantVerloondeUren" ColumnName="AantVerloondeUren" />
+          <ScalarProperty Name="BedrLoonLbPremieVolksverz" ColumnName="BedrLoonLbPremieVolksverz" />
+          <ScalarProperty Name="BedrLoonSv" ColumnName="BedrLoonSv" />
+          <ScalarProperty Name="BedrVakantietoeslag" ColumnName="BedrVakantietoeslag" />
+          <ScalarProperty Name="BedrOpgebouwdRechtVakToeslag" ColumnName="BedrOpgebouwdRechtVakToeslag" />
+          <ScalarProperty Name="BedrExtraPeriodeSalaris" ColumnName="BedrExtraPeriodeSalaris" />
+          <ScalarProperty Name="BedrOpgbRechtExtraPrdSalaris" ColumnName="BedrOpgbRechtExtraPrdSalaris" />
+          <ScalarProperty Name="BedrVerstrekteAanvUitkWnverz" ColumnName="BedrVerstrekteAanvUitkWnverz" />
+          <ScalarProperty Name="BedrPremieUfo" ColumnName="BedrPremieUfo" />
+          <ScalarProperty Name="Tijdvak" ColumnName="Tijdvak" />
+          <ScalarProperty Name="Maatgevend" ColumnName="Maatgevend" />
+          <ScalarProperty Name="WerkUren" ColumnName="WerkUren" />
+          <ScalarProperty Name="Toelichting" ColumnName="Toelichting" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InkomstenVerhouding">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.InkomstenVerhouding">
+        <MappingFragment StoreEntitySet="InkomstenVerhouding">
+          <ScalarProperty Name="InkomstenVerhoudingId" ColumnName="InkomstenVerhoudingId" />
+          <ScalarProperty Name="InkomstenVerhoudingenSetId" ColumnName="InkomstenVerhoudingenSetId" />
+          <ScalarProperty Name="WerkgeverGegevensId" ColumnName="WerkgeverGegevensId" />
+          <ScalarProperty Name="DatumBegin" ColumnName="DatumBegin" />
+          <ScalarProperty Name="DatumEinde" ColumnName="DatumEinde" />
+          <ScalarProperty Name="CodeHerKomst" ColumnName="CodeHerKomst" />
+          <ScalarProperty Name="IndicatieIndexCijferGrensBinnenRefertePeriode" ColumnName="IndicatieIndexCijferGrensBinnenRefertePeriode" />
+          <ScalarProperty Name="CodeTijdVakInkomstenOpgave" ColumnName="CodeTijdVakInkomstenOpgave" />
+          <ScalarProperty Name="AantalTijdvakken" ColumnName="AantalTijdvakken" />
+          <ScalarProperty Name="AantalGewerkteTijdvakken" ColumnName="AantalGewerkteTijdvakken" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InkomstenVerhoudingenSet">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.InkomstenVerhoudingenSet">
+        <MappingFragment StoreEntitySet="InkomstenVerhoudingenSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+          <ScalarProperty Name="TypeInkomstenVerhoudingSet" ColumnName="TypeInkomstenVerhoudingSet" />
+          <ScalarProperty Name="PeilDatum" ColumnName="PeilDatum" />
+          <ScalarProperty Name="PeilDatumExtraRefertePeriode" ColumnName="PeilDatumExtraRefertePeriode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LaunchCode">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.LaunchCode">
+        <MappingFragment StoreEntitySet="LaunchCode">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ReportingSetName" ColumnName="ReportingSetName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaatManLoon">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.MaatManLoon">
+        <MappingFragment StoreEntitySet="MaatManLoon">
+          <ScalarProperty Name="MaatManLoonId" ColumnName="MaatManLoonId" />
+          <ScalarProperty Name="BedragTussenMaatManLoon" ColumnName="BedragTussenMaatManLoon" />
+          <ScalarProperty Name="OngeindexeerdMaatManLoonPerUur" ColumnName="OngeindexeerdMaatManLoonPerUur" />
+          <ScalarProperty Name="MaatManLoonPerUur" ColumnName="MaatManLoonPerUur" />
+          <ScalarProperty Name="MaatManOmvangPerWeek" ColumnName="MaatManOmvangPerWeek" />
+          <ScalarProperty Name="AantSvDagenRefertePeriode" ColumnName="AantSvDagenRefertePeriode" />
+          <ScalarProperty Name="AantUrenRefertePeriode" ColumnName="AantUrenRefertePeriode" />
+          <ScalarProperty Name="BedrLoonSvRefertePeriode" ColumnName="BedrLoonSvRefertePeriode" />
+          <ScalarProperty Name="BedrVakantietoeslagRefertePeriode" ColumnName="BedrVakantietoeslagRefertePeriode" />
+          <ScalarProperty Name="BedrOpgebouwdRechtVakToeslagRefertePeriode" ColumnName="BedrOpgebouwdRechtVakToeslagRefertePeriode" />
+          <ScalarProperty Name="BedrExtraPeriodeSalarisRefertePeriode" ColumnName="BedrExtraPeriodeSalarisRefertePeriode" />
+          <ScalarProperty Name="BedrOpgbRechtExtraPrdSalarisRefertePeriode" ColumnName="BedrOpgbRechtExtraPrdSalarisRefertePeriode" />
+          <ScalarProperty Name="CorrectieFactorOnregelmatigArbeidsPatroon" ColumnName="CorrectieFactorOnregelmatigArbeidsPatroon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaatManResultaat">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.MaatManResultaat">
+        <MappingFragment StoreEntitySet="MaatManResultaat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InkomstenVerhoudingenSetId" ColumnName="InkomstenVerhoudingenSetId" />
+          <ScalarProperty Name="SamengesteldMaatManLoonPerUur" ColumnName="SamengesteldMaatManLoonPerUur" />
+          <ScalarProperty Name="SamengesteldMaatManOmvangPerWeek" ColumnName="SamengesteldMaatManOmvangPerWeek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedischeBeperking">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.MedischeBeperking">
+        <MappingFragment StoreEntitySet="MedischeBeperking">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrenomvangPerWeek" ColumnName="UrenomvangPerWeek" />
+          <ScalarProperty Name="UrenomvangPerDag" ColumnName="UrenomvangPerDag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MqMessagesEAED">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.MqMessagesEAED">
+        <MappingFragment StoreEntitySet="MqMessagesEAED">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MqMessagesMisDb">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.MqMessagesMisDb">
+        <MappingFragment StoreEntitySet="MqMessagesMisDb">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Office">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Office">
+        <MappingFragment StoreEntitySet="Office">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+          <ScalarProperty Name="OfficeCodeSmz" ColumnName="OfficeCodeSmz" />
+          <ScalarProperty Name="OfficeCodeSvb" ColumnName="OfficeCodeSvb" />
+          <ScalarProperty Name="OfficeCodeZwArbo" ColumnName="OfficeCodeZwArbo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OorzaakCode">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.OorzaakCode">
+        <MappingFragment StoreEntitySet="OorzaakCode">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodeOorzaak" ColumnName="CodeOorzaak" />
+          <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Popup">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Popup">
+        <MappingFragment StoreEntitySet="Popup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="BundleName" ColumnName="BundleName" />
+          <ScalarProperty Name="PdcProcessId" ColumnName="PdcProcessId" />
+          <ScalarProperty Name="XmlStructure" ColumnName="XmlStructure" />
+          <ScalarProperty Name="HtmlDocument" ColumnName="HtmlDocument" />
+          <ScalarProperty Name="ReferenceToRootDoc" ColumnName="ReferenceToRootDoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PopupText">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.PopupText">
+        <MappingFragment StoreEntitySet="PopupText">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TextName" ColumnName="TextName" />
+          <ScalarProperty Name="TextValue" ColumnName="TextValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PopupTree">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.PopupTree">
+        <MappingFragment StoreEntitySet="PopupTree">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BundleName" ColumnName="BundleName" />
+          <ScalarProperty Name="XmlStructure" ColumnName="XmlStructure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PraktischeVerdienCapaciteitResultaat">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.PraktischeVerdienCapaciteitResultaat">
+        <MappingFragment StoreEntitySet="PraktischeVerdienCapaciteitResultaat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InkomstenVerhoudingenSetId" ColumnName="InkomstenVerhoudingenSetId" />
+          <ScalarProperty Name="BedrRvcPerUurZonderReductie" ColumnName="BedrRvcPerUurZonderReductie" />
+          <ScalarProperty Name="UrenomvangResterendeVerdienCapaciteit" ColumnName="UrenomvangResterendeVerdienCapaciteit" />
+          <ScalarProperty Name="ReductieFactor" ColumnName="ReductieFactor" />
+          <ScalarProperty Name="ResterendeVerdienCapaciteitPerUur" ColumnName="ResterendeVerdienCapaciteitPerUur" />
+          <ScalarProperty Name="ResterendeVerdienCapaciteitPerMaand" ColumnName="ResterendeVerdienCapaciteitPerMaand" />
+          <ScalarProperty Name="ArbeidsOngeschiktheidsPercentage" ColumnName="ArbeidsOngeschiktheidsPercentage" />
+          <ScalarProperty Name="PercentageResterendeVerdienCapaciteit" ColumnName="PercentageResterendeVerdienCapaciteit" />
+          <ScalarProperty Name="IndicatieMaatgevend" ColumnName="IndicatieMaatgevend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrivateAutocorrectList">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.PrivateAutocorrectList">
+        <MappingFragment StoreEntitySet="PrivateAutocorrectList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EndUserId" ColumnName="EndUserId" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessOrLaw">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.ProcessOrLaw">
+        <MappingFragment StoreEntitySet="ProcessOrLaw">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProcessCode" ColumnName="ProcessCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LawReplyAddressId" ColumnName="LawReplyAddressId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="LaunchCodeId" ColumnName="LaunchCodeId" />
+          <ScalarProperty Name="ProcessOrLawId" ColumnName="ProcessOrLawId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ADGroupName" ColumnName="ADGroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleAuthorizedActions">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.RoleAuthorizedActions">
+        <MappingFragment StoreEntitySet="RoleAuthorizedActions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="AuthorizedActionId" ColumnName="AuthorizedActionId" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Template">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.Template">
+        <MappingFragment StoreEntitySet="Template">
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BRaVoDocumentTypeId" ColumnName="BRaVoDocumentTypeId" />
+          <ScalarProperty Name="TemplateTypeSuffix" ColumnName="TemplateTypeSuffix" />
+          <ScalarProperty Name="TemplateNameWithoutSuffix" ColumnName="TemplateNameWithoutSuffix" />
+          <ScalarProperty Name="DerivedTemplate_TemplateId" ColumnName="DerivedTemplate_TemplateId" />
+          <ScalarProperty Name="DerivedTemplateId" ColumnName="DerivedTemplateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TextBlock">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.TextBlock">
+        <MappingFragment StoreEntitySet="TextBlock">
+          <ScalarProperty Name="TextBlockId" ColumnName="TextBlockId" />
+          <ScalarProperty Name="TextBlockName" ColumnName="TextBlockName" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="ChildCount" ColumnName="ChildCount" />
+          <ScalarProperty Name="IsExternalDocument" ColumnName="IsExternalDocument" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="TextBlock_TextBlockId" ColumnName="TextBlock_TextBlockId" />
+          <ScalarProperty Name="BravoDocument_DocumentId" ColumnName="BravoDocument_DocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheoretischeVerdienCapaciteit">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.TheoretischeVerdienCapaciteit">
+        <MappingFragment StoreEntitySet="TheoretischeVerdienCapaciteit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MediaanUurloon" ColumnName="MediaanUurloon" />
+          <ScalarProperty Name="UrenomvangResterendeVerdienCapaciteit" ColumnName="UrenomvangResterendeVerdienCapaciteit" />
+          <ScalarProperty Name="ReductieFactor" ColumnName="ReductieFactor" />
+          <ScalarProperty Name="PercentageReductieMedischeUrenBeperking" ColumnName="PercentageReductieMedischeUrenBeperking" />
+          <ScalarProperty Name="ResterendeVerdienCapaciteitPerUur" ColumnName="ResterendeVerdienCapaciteitPerUur" />
+          <ScalarProperty Name="ResterendeVerdienCapaciteitPerMaand" ColumnName="ResterendeVerdienCapaciteitPerMaand" />
+          <ScalarProperty Name="ArbeidsOngeschiktheidsPercentage" ColumnName="ArbeidsOngeschiktheidsPercentage" />
+          <ScalarProperty Name="PercentageResterendeVerdienCapaciteit" ColumnName="PercentageResterendeVerdienCapaciteit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSetting">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.UserSetting">
+        <MappingFragment StoreEntitySet="UserSetting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EndUserId" ColumnName="EndUserId" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WerkgeverGegevens">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.WerkgeverGegevens">
+        <MappingFragment StoreEntitySet="WerkgeverGegevens">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoonHeffingenNummer" ColumnName="LoonHeffingenNummer" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EndUserClient" TypeName="uwv_bravo_omModel.EndUserClient" StoreEntitySet="EndUserClient">
+      <EndProperty Name="Client">
+        <ScalarProperty Name="Id" ColumnName="Client_Id" />
+      </EndProperty>
+      <EndProperty Name="EndUser">
+        <ScalarProperty Name="Id" ColumnName="EndUser_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OfficeAddresses" TypeName="uwv_bravo_omModel.OfficeAddresses" StoreEntitySet="OfficeAddresses">
+      <EndProperty Name="Address">
+        <ScalarProperty Name="Id" ColumnName="AddressID" />
+      </EndProperty>
+      <EndProperty Name="Office">
+        <ScalarProperty Name="Id" ColumnName="OfficeID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="zTest">
+      <EntityTypeMapping TypeName="uwv_bravo_omModel.zTest">
+        <MappingFragment StoreEntitySet="zTest">
+          <ScalarProperty Name="XmlStructure" ColumnName="XmlStructure" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

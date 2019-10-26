@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Northwind.Core.EntityLayer.Customer>
+
+@using NorthwindMvc5.Resources;
+
+@{
+    ViewBag.Title = CustomerResource.Title;
+}
+
+<h2>@CustomerResource.Index</h2>
+
+<p>
+    @Html.ActionLink(CustomerResource.CreateNew, "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.ActionLink(CustomerResource.Edit, "Edit", new { id = item.CustomerID }) |
+            @Html.ActionLink(CustomerResource.Details, "Details", new { id = item.CustomerID }) |
+            @Html.ActionLink(CustomerResource.Delete, "Delete", new { id = item.CustomerID })
+        </td>
+    </tr>
+}
+
+</table>

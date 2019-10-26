@@ -1,0 +1,44 @@
+﻿<h2>Delete</h2>
+
+<h3>Are you sure to want delete this record?</h3>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Company name</dt>
+        <dd>{{ result.model.companyName }}</dd>
+
+        <dt>Contact name</dt>
+        <dd>{{ result.model.contactName }}</dd>
+
+        <dt>Contact title</dt>
+        <dd>{{ result.model.contactTitle }}</dd>
+
+        <dt>Address</dt>
+        <dd>{{ result.model.address }}</dd>
+
+        <dt>City</dt>
+        <dd>{{ result.model.city }}</dd>
+
+        <dt>Region</dt>
+        <dd>{{ result.model.region }}</dd>
+
+        <dt>Postal code</dt>
+        <dd>{{ result.model.postalCode }}</dd>
+
+        <dt>Country</dt>
+        <dd>{{ result.model.country }}</dd>
+
+        <dt>Phone</dt>
+        <dd>{{ result.model.phone }}</dd>
+
+        <dt>Fax</dt>
+        <dd>{{ result.model.fax }}</dd>
+    </dl>
+
+    <div class="form-actions no-color">
+        <a ng-click="delete(result.model.customerID)" class="btn btn-default">Delete</a>
+        <a ng-click="cancel()" class="btn btn-small">Cancel</a>
+    </div>
+</div>

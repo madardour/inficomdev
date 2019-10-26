@@ -1,0 +1,42 @@
+﻿<h2>Products</h2>
+
+<div class="alert alert-danger" role="alert" ng-show="vm.result.didError">
+    {{ vm.result.errorMessage }}
+</div>
+
+<p>
+    <a ng-click="vm.create()">Create new</a>
+</p>
+
+<div class="form-inline">
+
+</div>
+
+<table ng-table="vm.tableParams" class="table">
+    <tr ng-repeat="product in $data">
+        <td data-title="'Product name'" sortable="'productName'">
+            {{ product.productName }}
+        </td>
+        <td data-title="'Supplier'" sortable="'companyName'">
+            {{ product.companyName }}
+        </td>
+        <td data-title="'Category'" sortable="'categoryName'">
+            {{ product.categoryName }}
+        </td>
+        <td class="text-right" data-title="'Unit price'" sortable="'unitPrice'">
+            {{ product.unitPrice | currency }}
+        </td>
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="vm.edit(product)">Edit</a></li>
+                    <li><a ng-click="vm.details(product)">Details</a></li>
+                    <li><a ng-click="vm.delete(product)">Delete</a></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>

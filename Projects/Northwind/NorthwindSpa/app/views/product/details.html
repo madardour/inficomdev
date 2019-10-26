@@ -1,0 +1,30 @@
+﻿<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>Product name</dt>
+        <dd>{{ vm.result.model.productName }}</dd>
+
+        <dt>Supplier name</dt>
+        <dd>{{ vm.result.model.fkProductsSuppliers.companyName }}</dd>
+
+        <dt>Category name</dt>
+        <dd>{{ vm.result.model.fkProductsCategories.categoryName }}</dd>
+
+        <dt>Quantity per unit</dt>
+        <dd>{{ vm.result.model.quantityPerUnit }}</dd>
+
+        <dt>Unit price</dt>
+        <dd>{{ vm.result.model.unitPrice | currency }}</dd>
+
+        <dt>Units in stock</dt>
+        <dd>{{ vm.result.model.unitsInStock }}</dd>
+    </dl>
+</div>
+
+<p>
+    <a ng-click="vm.edit()">Edit</a>
+    <a ng-click="vm.cancel()">Cancel</a>
+</p>

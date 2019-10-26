@@ -1,0 +1,43 @@
+﻿@model IEnumerable<NorthwindMvc5.Areas.Administration.Models.RegionModel>
+
+@using NorthwindMvc5.Resources;
+
+@{
+    ViewBag.Title = RegionResource.Index;
+}
+
+<h2>@RegionResource.Index</h2>
+
+<p>
+    @Html.ActionLink(@RegionResource.CreateNew, "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegionDescription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegionDescription)
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink(RegionResource.Edit, "Edit", new { id = item.RegionID })</li>
+                        <li>@Html.ActionLink(RegionResource.Details, "Details", new { id = item.RegionID })</li>
+                        <li>@Html.ActionLink(RegionResource.Delete, "Delete", new { id = item.RegionID })</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

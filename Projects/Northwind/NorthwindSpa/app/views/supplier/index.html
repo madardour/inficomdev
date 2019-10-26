@@ -1,0 +1,40 @@
+﻿<h2>Suppliers</h2>
+
+<div class="alert alert-danger" role="alert" ng-show="vm.result.didError">
+    {{ vm.result.errorMessage }}
+</div>
+
+<p>
+    <a ng-click="vm.create()">Create new</a>
+</p>
+
+<br />
+
+<table ng-table="vm.tableParams" class="table">
+    <tr ng-repeat="supplier in $data">
+        <td data-title="'Company name'" sortable="'companyName'">
+            {{ supplier.companyName }}
+        </td>
+        <td data-title="'Contact name'" sortable="'contactName'">
+            {{ supplier.contactName }}
+        </td>
+        <td data-title="'Country'" sortable="'country'">
+            {{ supplier.country }}
+        </td>
+        <td data-title="'City'" sortable="'city'">
+            {{ supplier.city }}
+        </td>
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="vm.edit(supplier)">Edit</a></li>
+                    <li><a ng-click="vm.details(supplier)">Details</a></li>
+                    <li><a ng-click="vm.delete(supplier)">Delete</a></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>

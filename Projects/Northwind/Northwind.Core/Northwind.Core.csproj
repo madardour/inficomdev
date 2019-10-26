@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39A1790F-BB81-4A18-A060-C664560ED028}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Northwind.Core</RootNamespace>
+    <AssemblyName>Northwind.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\Contracts\IBusinessObject.cs" />
+    <Compile Include="BusinessLayer\Contracts\ISalesBusinessObject.cs" />
+    <Compile Include="BusinessLayer\Contracts\IStoreBusinessObject.cs" />
+    <Compile Include="BusinessLayer\DiscontinuedProductException.cs" />
+    <Compile Include="BusinessLayer\ForeignKeyDependencyException.cs" />
+    <Compile Include="BusinessLayer\NullEntityException.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Customer.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Employee.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Region.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Shipper.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Supplier.cs" />
+    <Compile Include="BusinessLayer\StoreBusinessObject.cs" />
+    <Compile Include="DataLayer\Contracts\IShoppingCartItemRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IShoppingCartRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IStoreUow.cs" />
+    <Compile Include="DataLayer\Mapping\ShoppingCartItemMap.cs" />
+    <Compile Include="DataLayer\Mapping\ShoppingCartMap.cs" />
+    <Compile Include="DataLayer\Repositories\ChangeLogRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IChangeLogRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IOrderDetailSummaryRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IReportsUow.cs" />
+    <Compile Include="DataLayer\Contracts\ISalesUow.cs" />
+    <Compile Include="DataLayer\Contracts\IUow.cs" />
+    <Compile Include="DataLayer\Mapping\ChangeLogMap.cs" />
+    <Compile Include="DataLayer\Mapping\OrderDetailSummaryMap.cs" />
+    <Compile Include="DataLayer\Repositories\OrderDetailSummaryRepository.cs" />
+    <Compile Include="DataLayer\ReportsUow.cs" />
+    <Compile Include="DataLayer\Repositories\ShoppingCartItemRepository.cs" />
+    <Compile Include="DataLayer\Repositories\ShoppingCartRepository.cs" />
+    <Compile Include="DataLayer\SalesUow.cs" />
+    <Compile Include="DataLayer\Mapping\CategoryMap.cs" />
+    <Compile Include="DataLayer\Mapping\CategorySaleFor1997Map.cs" />
+    <Compile Include="DataLayer\Mapping\CustomerMap.cs" />
+    <Compile Include="DataLayer\DataContracts\CustOrderHist.cs" />
+    <Compile Include="DataLayer\DataContracts\EmployeeDetail.cs" />
+    <Compile Include="DataLayer\DataContracts\TenMostExpensiveProduct.cs" />
+    <Compile Include="DataLayer\Mapping\DbContextConfiguration.cs" />
+    <Compile Include="DataLayer\Mapping\EmployeeMap.cs" />
+    <Compile Include="DataLayer\Mapping\IEntityConfiguration.cs" />
+    <Compile Include="DataLayer\Mapping\OrderMap.cs" />
+    <Compile Include="DataLayer\Mapping\OrderDetailMap.cs" />
+    <Compile Include="DataLayer\Mapping\ProductMap.cs" />
+    <Compile Include="DataLayer\Mapping\RegionMap.cs" />
+    <Compile Include="DataLayer\Mapping\ShipperMap.cs" />
+    <Compile Include="DataLayer\Mapping\SupplierMap.cs" />
+    <Compile Include="DataLayer\DataContracts\OrderSummary.cs" />
+    <Compile Include="DataLayer\Contracts\ICategoryRepository.cs" />
+    <Compile Include="DataLayer\Contracts\ICategorySaleFor1997Repository.cs" />
+    <Compile Include="DataLayer\Contracts\ICustomerRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IEmployeeRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IOrderDetailRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IOrderRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IProductRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IShipperRepository.cs" />
+    <Compile Include="DataLayer\Contracts\ISupplierRepository.cs" />
+    <Compile Include="DataLayer\DataContracts\ProductDetail.cs" />
+    <Compile Include="DataLayer\Contracts\IRepository.cs" />
+    <Compile Include="DataLayer\Repositories\CategoryRepository.cs" />
+    <Compile Include="DataLayer\Repositories\CategorySaleFor1997Repository.cs" />
+    <Compile Include="DataLayer\Repositories\CustomerRepository.cs" />
+    <Compile Include="DataLayer\Repositories\EmployeeRepository.cs" />
+    <Compile Include="DataLayer\Contracts\IRegionRepository.cs" />
+    <Compile Include="DataLayer\Repositories\OrderDetailRepository.cs" />
+    <Compile Include="DataLayer\Repositories\OrderRepository.cs" />
+    <Compile Include="DataLayer\Repositories\ProductRepository.cs" />
+    <Compile Include="DataLayer\Repositories\RegionRepository.cs" />
+    <Compile Include="DataLayer\Repositories\ShipperRepository.cs" />
+    <Compile Include="DataLayer\Repositories\SupplierRepository.cs" />
+    <Compile Include="DataLayer\Repository.cs" />
+    <Compile Include="DataLayer\SalesDbContext.cs" />
+    <Compile Include="DataLayer\StoreUow.cs" />
+    <Compile Include="DataLayer\Uow.cs" />
+    <Compile Include="EntityLayer\Category.cs" />
+    <Compile Include="EntityLayer\CategorySaleFor1997.cs" />
+    <Compile Include="EntityLayer\ChangeLog.cs" />
+    <Compile Include="EntityLayer\Customer.cs" />
+    <Compile Include="EntityLayer\Employee.cs" />
+    <Compile Include="EntityLayer\Employee.partial.cs" />
+    <Compile Include="EntityLayer\Order.cs" />
+    <Compile Include="EntityLayer\OrderDetail.cs" />
+    <Compile Include="EntityLayer\OrderDetailSummary.cs" />
+    <Compile Include="EntityLayer\Product.cs" />
+    <Compile Include="EntityLayer\Region.cs" />
+    <Compile Include="EntityLayer\Shipper.cs" />
+    <Compile Include="EntityLayer\ShoppingCart.cs" />
+    <Compile Include="EntityLayer\ShoppingCartItem.cs" />
+    <Compile Include="EntityLayer\Supplier.cs" />
+    <Compile Include="DataLayer\EfExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Order.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Product.cs" />
+    <Compile Include="BusinessLayer\SalesBusinessObject.Category.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

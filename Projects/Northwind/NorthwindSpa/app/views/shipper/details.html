@@ -1,0 +1,20 @@
+﻿<h2>{{ vm.translation.details }}</h2>
+
+<div>
+    <h4>{{ vm.translation.shipper }}</h4>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>{{ vm.translation.companyName }}</dt>
+        <dd>{{ vm.result.model.companyName }}</dd>
+
+        <dt>{{ vm.translation.phone }}</dt>
+        <dd>{{ vm.result.model.phone }}</dd>
+    </dl>
+</div>
+
+<p>
+    <a ng-click="vm.edit(result.model.shipperID)">{{ vm.translation.edit }}</a>
+    <a ng-click="vm.cancel()">{{ vm.translation.cancel }}</a>
+</p>

@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Forms";
+}
+
+<h2>Forms</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Artist search</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("Search", "Inficom",
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults",
+            
+        }))
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+        <div id="searchresults"></div>
+    </div>
+</div>

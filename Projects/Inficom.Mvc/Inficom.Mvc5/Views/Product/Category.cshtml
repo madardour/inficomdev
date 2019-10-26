@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Inficom.Mvc5.ViewModels.ProductCategories>
+@{
+                /**/
+
+                ViewBag.Title = "Product categories";
+}
+<h2>Product categories</h2>
+<table>
+    <tr>
+        <th>
+            Categories
+        </th>
+        <th>
+            Products
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @item.ProductCount
+    </td>
+</tr>
+}
+</table>

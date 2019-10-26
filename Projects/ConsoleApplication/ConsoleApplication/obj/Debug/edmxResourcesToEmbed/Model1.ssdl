@@ -1,0 +1,1521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="uwv_bravo_omModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressCategoryId" Type="int" Nullable="false" />
+    <Property Name="AddressTypeId" Type="int" Nullable="false" />
+    <Property Name="AddressTyp" Type="nvarchar(max)" />
+    <Property Name="PostalCode" Type="nvarchar(max)" />
+    <Property Name="Residence" Type="nvarchar(max)" />
+    <Property Name="StreetName" Type="nvarchar(max)" />
+    <Property Name="HouseNumber" Type="nvarchar(max)" />
+    <Property Name="HouseNumberCharacterAddition" Type="nvarchar(max)" />
+    <Property Name="HouseNumberAddition" Type="nvarchar(max)" />
+    <Property Name="Postaddress" Type="nvarchar(max)" />
+    <Property Name="EmployerContactname" Type="nvarchar(max)" />
+    <Property Name="IdcdNraanduiding" Type="nvarchar(max)" />
+    <Property Name="Client_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="AddressCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AddressType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AosCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LaunchCodeId" Type="int" Nullable="false" />
+    <Property Name="TemplateId" Type="int" Nullable="false" />
+    <Property Name="CdClassificatie" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ArbeidsVerleden">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DatumBegin" Type="datetime" />
+    <Property Name="DatumEinde" Type="datetime" />
+    <Property Name="Functie" Type="nvarchar(max)" />
+    <Property Name="Urenperweek" Type="int" />
+    <Property Name="LoonHeffingenNummer" Type="nvarchar(max)" />
+    <Property Name="Naam" Type="nvarchar(max)" />
+    <Property Name="Selected" Type="bit" Nullable="false" />
+    <Property Name="Case_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="AuthorizedAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BravoDocument">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TemplateId" Type="int" Nullable="false" />
+    <Property Name="CaseId" Type="int" Nullable="false" />
+    <Property Name="DocumentXmlVariables" Type="xml" />
+    <Property Name="DocumentXmlStructure" Type="xml" />
+    <Property Name="MwsProcessId" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="State" Type="int" />
+    <Property Name="LastSaved" Type="datetime" Nullable="false" />
+    <Property Name="LastSavedByUserId" Type="int" Nullable="false" />
+    <Property Name="IsSigned" Type="bit" Nullable="false" />
+    <Property Name="IsContraSigned" Type="bit" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="HasBeenSaved" Type="bit" Nullable="false" />
+    <Property Name="IsDerivedFrom" Type="int" Nullable="false" />
+    <Property Name="ReferenceToRootDoc" Type="nvarchar(max)" />
+    <Property Name="Document" Type="varbinary(max)" />
+    <Property Name="PdcManVarXml" Type="xml" />
+    <Property Name="LockedBySession" Type="nvarchar(max)" />
+    <Property Name="LockedByUser" Type="nvarchar(max)" />
+    <Property Name="HtmlDocument" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Case">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SimCasusId" Type="nvarchar(max)" />
+    <Property Name="FlowerCaseId" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="ProcessOrLawId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="SuwiCode" Type="nvarchar(max)" />
+    <Property Name="Gemeentenaam" Type="nvarchar(max)" />
+    <Property Name="Gemeentecode" Type="nvarchar(max)" />
+    <Property Name="DatumOntvangstAanvraag" Type="datetime" />
+    <Property Name="TeamNummer" Type="nvarchar(max)" />
+    <Property Name="DatAfsluitenSmf" Type="datetime" />
+    <Property Name="DatEDoelbinding" Type="datetime" />
+    <Property Name="IndTenOnrechteOpgevoerd" Type="int" />
+    <Property Name="OfficeId" Type="int" />
+    <Property Name="UpaSuccesfull" Type="bit" Nullable="false" />
+    <Property Name="EersteAoDag" Type="datetime" />
+    <Property Name="DatumEWT" Type="datetime" />
+    <Property Name="IndicatieHerbeoordeling" Type="bit" Nullable="false" />
+    <Property Name="IndCasusBzInternationaal" Type="bit" Nullable="false" />
+    <Property Name="VraagstellingAanvullend" Type="nvarchar(max)" />
+    <Property Name="OmsProductcd" Type="nvarchar(max)" />
+    <Property Name="VraagstellingVA" Type="nvarchar(max)" />
+    <Property Name="VraagstellingAD" Type="nvarchar(max)" />
+    <Property Name="LaunchCodeId" Type="int" Nullable="false" />
+    <Property Name="PeildatumArbeidsVerleden" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CbbsResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TheoretischeVerdienCapaciteitId" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="6" />
+    <Property Name="JobDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="Row" Type="int" Nullable="false" />
+    <Property Name="MediaanUurloon" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="ReductieFactor" Type="decimal" Precision="5" Scale="4" />
+    <Property Name="NumberOfJobs" Type="int" />
+  </EntityType>
+  <EntityType Name="CbsIndex">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Index" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IndexBaseYear" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CbsIndexIkv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CbsIndexType" Type="int" Nullable="false" />
+    <Property Name="InkomstenVerhoudingId" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Index" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IndexBaseYear" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bsn" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Voornamen" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Voorletters" Type="nvarchar(max)" />
+    <Property Name="Voorvoegsel" Type="nvarchar(max)" />
+    <Property Name="Achternaam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GeboorteDatum" Type="datetime" />
+    <Property Name="Geslacht" Type="nvarchar(max)" />
+    <Property Name="CdAanduidingNaamgebruik" Type="nvarchar(max)" />
+    <Property Name="VoorvoegselEchtgenoot" Type="nvarchar(max)" />
+    <Property Name="AchternaamEchtgenoot" Type="nvarchar(max)" />
+    <Property Name="Woonplaats" Type="nvarchar(max)" />
+    <Property Name="ModificationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomTextBlock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EndUserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomUserText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="InsertUser" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdateUser" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DiagnoseCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Omschrijving" Type="nvarchar(max)" />
+    <Property Name="DiagnoseCodeSectionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DiagnoseCodeSection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Omschrijving" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DocumentHistory">
+    <Key>
+      <PropertyRef Name="DocumentHistoryId" />
+    </Key>
+    <Property Name="DocumentHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BravoDocumentId" Type="int" Nullable="false" />
+    <Property Name="EndUserId" Type="int" Nullable="false" />
+    <Property Name="AuthorizedActionId" Type="int" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+    <Property Name="BravoDocument_DocumentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeId" />
+    </Key>
+    <Property Name="DocumentTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="AbbreviationPDC" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DocumentVariable">
+    <Key>
+      <PropertyRef Name="DocumentVariableId" />
+    </Key>
+    <Property Name="DocumentVariableId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentVariableName" Type="nvarchar(max)" />
+    <Property Name="DocumentVariableIdFromModus" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Mask" Type="nvarchar(max)" />
+    <Property Name="ValuehelpName" Type="nvarchar(max)" />
+    <Property Name="ValuehelpSystem" Type="nvarchar(max)" />
+    <Property Name="ValuehelpType" Type="int" Nullable="false" />
+    <Property Name="InputEnabled" Type="nvarchar(max)" />
+    <Property Name="DataLink" Type="nvarchar(max)" />
+    <Property Name="DataAttribute" Type="nvarchar(max)" />
+    <Property Name="InputRequired" Type="int" Nullable="false" />
+    <Property Name="BravoDocument_DocumentId" Type="int" />
+  </EntityType>
+  <EntityType Name="EndUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PuikId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AD_DisplayName" Type="nvarchar(max)" />
+    <Property Name="AD_SurName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="EndUserClient">
+    <Key>
+      <PropertyRef Name="EndUser_Id" />
+      <PropertyRef Name="Client_Id" />
+    </Key>
+    <Property Name="EndUser_Id" Type="int" Nullable="false" />
+    <Property Name="Client_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GegevensPeriode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InkomstenVerhoudingId" Type="int" Nullable="false" />
+    <Property Name="BeginDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="InkomstenVermindering" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HerindexeringMaatman">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CbsIndexHuidigId" Type="int" Nullable="false" />
+    <Property Name="MaatmanUurloonHistory" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="MaatmanUurloonGeherindexeerd" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="UrenomvangMaatmanPerWeek" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="IndicatieTussenMaatman" Type="bit" Nullable="false" />
+    <Property Name="BedragTussenMaatman" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="IndexcijferHistory" Type="decimal" Precision="4" Scale="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InkomstenOpgave">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InkomstenVerhoudingId" Type="int" Nullable="false" />
+    <Property Name="BeginDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="AantSvDagen" Type="int" />
+    <Property Name="AantVerloondeUren" Type="int" />
+    <Property Name="BedrLoonLbPremieVolksverz" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BedrLoonSv" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BedrVakantietoeslag" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BedrOpgebouwdRechtVakToeslag" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BedrExtraPeriodeSalaris" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BedrOpgbRechtExtraPrdSalaris" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BedrVerstrekteAanvUitkWnverz" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BedrPremieUfo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Tijdvak" Type="int" Nullable="false" />
+    <Property Name="Maatgevend" Type="bit" Nullable="false" />
+    <Property Name="WerkUren" Type="int" />
+    <Property Name="Toelichting" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="InkomstenVerhouding">
+    <Key>
+      <PropertyRef Name="InkomstenVerhoudingId" />
+    </Key>
+    <Property Name="InkomstenVerhoudingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InkomstenVerhoudingenSetId" Type="int" Nullable="false" />
+    <Property Name="WerkgeverGegevensId" Type="int" Nullable="false" />
+    <Property Name="DatumBegin" Type="datetime" />
+    <Property Name="DatumEinde" Type="datetime" />
+    <Property Name="CodeHerKomst" Type="int" Nullable="false" />
+    <Property Name="IndicatieIndexCijferGrensBinnenRefertePeriode" Type="int" />
+    <Property Name="CodeTijdVakInkomstenOpgave" Type="int" Nullable="false" />
+    <Property Name="AantalTijdvakken" Type="int" Nullable="false" />
+    <Property Name="AantalGewerkteTijdvakken" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InkomstenVerhoudingenSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseId" Type="int" Nullable="false" />
+    <Property Name="TypeInkomstenVerhoudingSet" Type="int" Nullable="false" />
+    <Property Name="PeilDatum" Type="datetime" />
+    <Property Name="PeilDatumExtraRefertePeriode" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LaunchCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="ReportingSetName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MaatManLoon">
+    <Key>
+      <PropertyRef Name="MaatManLoonId" />
+    </Key>
+    <Property Name="MaatManLoonId" Type="int" Nullable="false" />
+    <Property Name="BedragTussenMaatManLoon" Type="decimal" Precision="6" Scale="3" Nullable="false" />
+    <Property Name="OngeindexeerdMaatManLoonPerUur" Type="decimal" Precision="6" Scale="3" Nullable="false" />
+    <Property Name="MaatManLoonPerUur" Type="decimal" Precision="6" Scale="3" Nullable="false" />
+    <Property Name="MaatManOmvangPerWeek" Type="decimal" Precision="6" Scale="3" Nullable="false" />
+    <Property Name="AantSvDagenRefertePeriode" Type="int" Nullable="false" />
+    <Property Name="AantUrenRefertePeriode" Type="int" Nullable="false" />
+    <Property Name="BedrLoonSvRefertePeriode" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="BedrVakantietoeslagRefertePeriode" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="BedrOpgebouwdRechtVakToeslagRefertePeriode" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="BedrExtraPeriodeSalarisRefertePeriode" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="BedrOpgbRechtExtraPrdSalarisRefertePeriode" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="CorrectieFactorOnregelmatigArbeidsPatroon" Type="decimal" Precision="4" Scale="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaatManResultaat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="InkomstenVerhoudingenSetId" Type="int" Nullable="false" />
+    <Property Name="SamengesteldMaatManLoonPerUur" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SamengesteldMaatManOmvangPerWeek" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedischeBeperking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UrenomvangPerWeek" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="UrenomvangPerDag" Type="decimal" Precision="4" Scale="2" />
+  </EntityType>
+  <EntityType Name="MqMessagesEAED">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestId" Type="nvarchar(max)" />
+    <Property Name="Message" Type="xml" />
+    <Property Name="DateSend" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MqMessagesMisDb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="xml" />
+    <Property Name="DateSend" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="RequestId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfficeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OfficeCodeSmz" Type="int" Nullable="false" />
+    <Property Name="OfficeCodeSvb" Type="int" Nullable="false" />
+    <Property Name="OfficeCodeZwArbo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfficeAddresses">
+    <Key>
+      <PropertyRef Name="OfficeID" />
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="OfficeID" Type="int" Nullable="false" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OorzaakCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeOorzaak" Type="int" Nullable="false" />
+    <Property Name="Omschrijving" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Popup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentId" Type="int" Nullable="false" />
+    <Property Name="BundleName" Type="nvarchar(max)" />
+    <Property Name="PdcProcessId" Type="nvarchar(max)" />
+    <Property Name="XmlStructure" Type="nvarchar(max)" />
+    <Property Name="HtmlDocument" Type="nvarchar(max)" />
+    <Property Name="ReferenceToRootDoc" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PopupText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TextName" Type="nvarchar(max)" />
+    <Property Name="TextValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PopupTree">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BundleName" Type="nvarchar(max)" />
+    <Property Name="XmlStructure" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PraktischeVerdienCapaciteitResultaat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="InkomstenVerhoudingenSetId" Type="int" Nullable="false" />
+    <Property Name="BedrRvcPerUurZonderReductie" Type="decimal" Precision="6" Scale="3" Nullable="false" />
+    <Property Name="UrenomvangResterendeVerdienCapaciteit" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="ReductieFactor" Type="decimal" Precision="5" Scale="4" Nullable="false" />
+    <Property Name="ResterendeVerdienCapaciteitPerUur" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="ResterendeVerdienCapaciteitPerMaand" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="ArbeidsOngeschiktheidsPercentage" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="PercentageResterendeVerdienCapaciteit" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="IndicatieMaatgevend" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrivateAutocorrectList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EndUserId" Type="int" Nullable="false" />
+    <Property Name="Keyword" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcessOrLaw">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcessCode" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="LawReplyAddressId" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCode" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="nvarchar(max)" />
+    <Property Name="EndDate" Type="nvarchar(max)" />
+    <Property Name="LaunchCodeId" Type="int" Nullable="false" />
+    <Property Name="ProcessOrLawId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ADGroupName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="RoleAuthorizedActions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="AuthorizedActionId" Type="int" Nullable="false" />
+    <Property Name="DocumentTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Template">
+    <Key>
+      <PropertyRef Name="TemplateId" />
+    </Key>
+    <Property Name="TemplateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BRaVoDocumentTypeId" Type="int" Nullable="false" />
+    <Property Name="TemplateTypeSuffix" Type="nvarchar(max)" />
+    <Property Name="TemplateNameWithoutSuffix" Type="nvarchar(max)" />
+    <Property Name="DerivedTemplate_TemplateId" Type="int" />
+    <Property Name="DerivedTemplateId" Type="int" />
+  </EntityType>
+  <EntityType Name="TextBlock">
+    <Key>
+      <PropertyRef Name="TextBlockId" />
+    </Key>
+    <Property Name="TextBlockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TextBlockName" Type="nvarchar(max)" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="Enabled" Type="int" Nullable="false" />
+    <Property Name="ChildCount" Type="int" Nullable="false" />
+    <Property Name="IsExternalDocument" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Reference" Type="nvarchar(max)" />
+    <Property Name="TextBlock_TextBlockId" Type="int" />
+    <Property Name="BravoDocument_DocumentId" Type="int" />
+  </EntityType>
+  <EntityType Name="TheoretischeVerdienCapaciteit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MediaanUurloon" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="UrenomvangResterendeVerdienCapaciteit" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ReductieFactor" Type="decimal" Precision="5" Scale="4" />
+    <Property Name="PercentageReductieMedischeUrenBeperking" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ResterendeVerdienCapaciteitPerUur" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ResterendeVerdienCapaciteitPerMaand" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="ArbeidsOngeschiktheidsPercentage" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="PercentageResterendeVerdienCapaciteit" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="UserSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EndUserId" Type="int" Nullable="false" />
+    <Property Name="Keyword" Type="nvarchar(max)" />
+    <Property Name="Value" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="WerkgeverGegevens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoonHeffingenNummer" Type="nvarchar(max)" />
+    <Property Name="Naam" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="zTest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="XmlStructure" Type="xml" />
+  </EntityType>
+  <Association Name="FK_dbo_Address_dbo_AddressCategory_AddressCategoryId">
+    <End Role="AddressCategory" Type="Self.AddressCategory" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="AddressCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Address_dbo_AddressType_AddressTypeId">
+    <End Role="AddressType" Type="Self.AddressType" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="AddressTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Address_dbo_Client_Client_Id">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="Client_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AosCode_dbo_LaunchCode_LaunchCodeId">
+    <End Role="LaunchCode" Type="Self.LaunchCode" Multiplicity="1" />
+    <End Role="AosCode" Type="Self.AosCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LaunchCode">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AosCode">
+        <PropertyRef Name="LaunchCodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AosCode_dbo_Template_TemplateId">
+    <End Role="Template" Type="Self.Template" Multiplicity="1" />
+    <End Role="AosCode" Type="Self.AosCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Template">
+        <PropertyRef Name="TemplateId" />
+      </Principal>
+      <Dependent Role="AosCode">
+        <PropertyRef Name="TemplateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ArbeidsVerleden_dbo_Case_Case_Id">
+    <End Role="Case" Type="Self.Case" Multiplicity="0..1" />
+    <End Role="ArbeidsVerleden" Type="Self.ArbeidsVerleden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArbeidsVerleden">
+        <PropertyRef Name="Case_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BravoDocument_dbo_Case_CaseId">
+    <End Role="Case" Type="Self.Case" Multiplicity="1" />
+    <End Role="BravoDocument" Type="Self.BravoDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BravoDocument">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BravoDocument_dbo_Template_TemplateId">
+    <End Role="Template" Type="Self.Template" Multiplicity="1" />
+    <End Role="BravoDocument" Type="Self.BravoDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Template">
+        <PropertyRef Name="TemplateId" />
+      </Principal>
+      <Dependent Role="BravoDocument">
+        <PropertyRef Name="TemplateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Case_dbo_Client_ClientId">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Case" Type="Self.Case" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Case">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Case_dbo_LaunchCode_LaunchCodeId">
+    <End Role="LaunchCode" Type="Self.LaunchCode" Multiplicity="1" />
+    <End Role="Case" Type="Self.Case" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LaunchCode">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Case">
+        <PropertyRef Name="LaunchCodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Case_dbo_Office_OfficeId">
+    <End Role="Office" Type="Self.Office" Multiplicity="0..1" />
+    <End Role="Case" Type="Self.Case" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Case">
+        <PropertyRef Name="OfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Case_dbo_ProcessOrLaw_ProcessOrLawId">
+    <End Role="ProcessOrLaw" Type="Self.ProcessOrLaw" Multiplicity="0..1" />
+    <End Role="Case" Type="Self.Case" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessOrLaw">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Case">
+        <PropertyRef Name="ProcessOrLawId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Case_dbo_Product_ProductId">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Case" Type="Self.Case" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Case">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CbbsResult_dbo_TheoretischeVerdienCapaciteit_TheoretischeVerdienCapaciteitId">
+    <End Role="TheoretischeVerdienCapaciteit" Type="Self.TheoretischeVerdienCapaciteit" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CbbsResult" Type="Self.CbbsResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TheoretischeVerdienCapaciteit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CbbsResult">
+        <PropertyRef Name="TheoretischeVerdienCapaciteitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CbsIndexIkv_dbo_InkomstenVerhouding_InkomstenVerhoudingId">
+    <End Role="InkomstenVerhouding" Type="Self.InkomstenVerhouding" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CbsIndexIkv" Type="Self.CbsIndexIkv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InkomstenVerhouding">
+        <PropertyRef Name="InkomstenVerhoudingId" />
+      </Principal>
+      <Dependent Role="CbsIndexIkv">
+        <PropertyRef Name="InkomstenVerhoudingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CustomTextBlock_dbo_EndUser_EndUserId">
+    <End Role="EndUser" Type="Self.EndUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CustomTextBlock" Type="Self.CustomTextBlock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EndUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomTextBlock">
+        <PropertyRef Name="EndUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DiagnoseCode_dbo_DiagnoseCodeSection_DiagnoseCodeSectionId">
+    <End Role="DiagnoseCodeSection" Type="Self.DiagnoseCodeSection" Multiplicity="1" />
+    <End Role="DiagnoseCode" Type="Self.DiagnoseCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiagnoseCodeSection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DiagnoseCode">
+        <PropertyRef Name="DiagnoseCodeSectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DocumentHistory_dbo_AuthorizedAction_AuthorizedActionId">
+    <End Role="AuthorizedAction" Type="Self.AuthorizedAction" Multiplicity="1" />
+    <End Role="DocumentHistory" Type="Self.DocumentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuthorizedAction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DocumentHistory">
+        <PropertyRef Name="AuthorizedActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DocumentHistory_dbo_BravoDocument_BravoDocument_DocumentId">
+    <End Role="BravoDocument" Type="Self.BravoDocument" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentHistory" Type="Self.DocumentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BravoDocument">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="DocumentHistory">
+        <PropertyRef Name="BravoDocument_DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DocumentHistory_dbo_EndUser_EndUserId">
+    <End Role="EndUser" Type="Self.EndUser" Multiplicity="1" />
+    <End Role="DocumentHistory" Type="Self.DocumentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EndUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DocumentHistory">
+        <PropertyRef Name="EndUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DocumentVariable_dbo_BravoDocument_BravoDocument_DocumentId">
+    <End Role="BravoDocument" Type="Self.BravoDocument" Multiplicity="0..1" />
+    <End Role="DocumentVariable" Type="Self.DocumentVariable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BravoDocument">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="DocumentVariable">
+        <PropertyRef Name="BravoDocument_DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_EndUser_dbo_Role_RoleId">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="EndUser" Type="Self.EndUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EndUser">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_EndUserClient_dbo_Client_Client_Id">
+    <End Role="Client" Type="Self.Client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EndUserClient" Type="Self.EndUserClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EndUserClient">
+        <PropertyRef Name="Client_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_EndUserClient_dbo_EndUser_EndUser_Id">
+    <End Role="EndUser" Type="Self.EndUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EndUserClient" Type="Self.EndUserClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EndUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EndUserClient">
+        <PropertyRef Name="EndUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_GegevensPeriode_dbo_InkomstenVerhouding_InkomstenVerhoudingId">
+    <End Role="InkomstenVerhouding" Type="Self.InkomstenVerhouding" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GegevensPeriode" Type="Self.GegevensPeriode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InkomstenVerhouding">
+        <PropertyRef Name="InkomstenVerhoudingId" />
+      </Principal>
+      <Dependent Role="GegevensPeriode">
+        <PropertyRef Name="InkomstenVerhoudingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HerindexeringMaatman_dbo_Case_Id">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HerindexeringMaatman" Type="Self.HerindexeringMaatman" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HerindexeringMaatman">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HerindexeringMaatman_dbo_CbsIndex_CbsIndexHuidigId">
+    <End Role="CbsIndex" Type="Self.CbsIndex" Multiplicity="1" />
+    <End Role="HerindexeringMaatman" Type="Self.HerindexeringMaatman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CbsIndex">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HerindexeringMaatman">
+        <PropertyRef Name="CbsIndexHuidigId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_InkomstenOpgave_dbo_InkomstenVerhouding_InkomstenVerhoudingId">
+    <End Role="InkomstenVerhouding" Type="Self.InkomstenVerhouding" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="InkomstenOpgave" Type="Self.InkomstenOpgave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InkomstenVerhouding">
+        <PropertyRef Name="InkomstenVerhoudingId" />
+      </Principal>
+      <Dependent Role="InkomstenOpgave">
+        <PropertyRef Name="InkomstenVerhoudingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_InkomstenVerhouding_dbo_InkomstenVerhoudingenSet_InkomstenVerhoudingenSetId">
+    <End Role="InkomstenVerhoudingenSet" Type="Self.InkomstenVerhoudingenSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="InkomstenVerhouding" Type="Self.InkomstenVerhouding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InkomstenVerhoudingenSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InkomstenVerhouding">
+        <PropertyRef Name="InkomstenVerhoudingenSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_InkomstenVerhouding_dbo_WerkgeverGegevens_WerkgeverGegevensId">
+    <End Role="WerkgeverGegevens" Type="Self.WerkgeverGegevens" Multiplicity="1" />
+    <End Role="InkomstenVerhouding" Type="Self.InkomstenVerhouding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WerkgeverGegevens">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InkomstenVerhouding">
+        <PropertyRef Name="WerkgeverGegevensId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_InkomstenVerhoudingenSet_dbo_Case_CaseId">
+    <End Role="Case" Type="Self.Case" Multiplicity="1" />
+    <End Role="InkomstenVerhoudingenSet" Type="Self.InkomstenVerhoudingenSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InkomstenVerhoudingenSet">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MaatManLoon_dbo_InkomstenVerhouding_MaatManLoonId">
+    <End Role="InkomstenVerhouding" Type="Self.InkomstenVerhouding" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaatManLoon" Type="Self.MaatManLoon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="InkomstenVerhouding">
+        <PropertyRef Name="InkomstenVerhoudingId" />
+      </Principal>
+      <Dependent Role="MaatManLoon">
+        <PropertyRef Name="MaatManLoonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MaatManResultaat_dbo_InkomstenVerhoudingenSet_Id">
+    <End Role="InkomstenVerhoudingenSet" Type="Self.InkomstenVerhoudingenSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaatManResultaat" Type="Self.MaatManResultaat" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="InkomstenVerhoudingenSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MaatManResultaat">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MedischeBeperking_dbo_Case_Id">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MedischeBeperking" Type="Self.MedischeBeperking" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MedischeBeperking">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OfficeAddresses_dbo_Address_AddressID">
+    <End Role="Address" Type="Self.Address" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfficeAddresses" Type="Self.OfficeAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfficeAddresses">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OfficeAddresses_dbo_Office_OfficeID">
+    <End Role="Office" Type="Self.Office" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfficeAddresses" Type="Self.OfficeAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfficeAddresses">
+        <PropertyRef Name="OfficeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Popup_dbo_BravoDocument_DocumentId">
+    <End Role="BravoDocument" Type="Self.BravoDocument" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Popup" Type="Self.Popup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BravoDocument">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="Popup">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_PraktischeVerdienCapaciteitResultaat_dbo_InkomstenVerhoudingenSet_Id">
+    <End Role="InkomstenVerhoudingenSet" Type="Self.InkomstenVerhoudingenSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PraktischeVerdienCapaciteitResultaat" Type="Self.PraktischeVerdienCapaciteitResultaat" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="InkomstenVerhoudingenSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PraktischeVerdienCapaciteitResultaat">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_PrivateAutocorrectList_dbo_EndUser_EndUserId">
+    <End Role="EndUser" Type="Self.EndUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PrivateAutocorrectList" Type="Self.PrivateAutocorrectList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EndUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrivateAutocorrectList">
+        <PropertyRef Name="EndUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProcessOrLaw_dbo_Address_LawReplyAddressId">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="ProcessOrLaw" Type="Self.ProcessOrLaw" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProcessOrLaw">
+        <PropertyRef Name="LawReplyAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Product_dbo_LaunchCode_LaunchCodeId">
+    <End Role="LaunchCode" Type="Self.LaunchCode" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LaunchCode">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="LaunchCodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Product_dbo_ProcessOrLaw_ProcessOrLawId">
+    <End Role="ProcessOrLaw" Type="Self.ProcessOrLaw" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessOrLaw">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProcessOrLawId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RoleAuthorizedActions_dbo_AuthorizedAction_AuthorizedActionId">
+    <End Role="AuthorizedAction" Type="Self.AuthorizedAction" Multiplicity="1" />
+    <End Role="RoleAuthorizedActions" Type="Self.RoleAuthorizedActions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuthorizedAction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleAuthorizedActions">
+        <PropertyRef Name="AuthorizedActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RoleAuthorizedActions_dbo_DocumentType_DocumentTypeId">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+    <End Role="RoleAuthorizedActions" Type="Self.RoleAuthorizedActions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="RoleAuthorizedActions">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RoleAuthorizedActions_dbo_Role_RoleId">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="RoleAuthorizedActions" Type="Self.RoleAuthorizedActions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleAuthorizedActions">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Template_dbo_DocumentType_BRaVoDocumentTypeId">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+    <End Role="Template" Type="Self.Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="Template">
+        <PropertyRef Name="BRaVoDocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Template_dbo_Template_DerivedTemplate_TemplateId">
+    <End Role="Template" Type="Self.Template" Multiplicity="0..1" />
+    <End Role="Template1" Type="Self.Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Template">
+        <PropertyRef Name="TemplateId" />
+      </Principal>
+      <Dependent Role="Template1">
+        <PropertyRef Name="DerivedTemplate_TemplateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TextBlock_dbo_BravoDocument_BravoDocument_DocumentId">
+    <End Role="BravoDocument" Type="Self.BravoDocument" Multiplicity="0..1" />
+    <End Role="TextBlock" Type="Self.TextBlock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BravoDocument">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="TextBlock">
+        <PropertyRef Name="BravoDocument_DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TextBlock_dbo_TextBlock_TextBlock_TextBlockId">
+    <End Role="TextBlock" Type="Self.TextBlock" Multiplicity="0..1" />
+    <End Role="TextBlock1" Type="Self.TextBlock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TextBlock">
+        <PropertyRef Name="TextBlockId" />
+      </Principal>
+      <Dependent Role="TextBlock1">
+        <PropertyRef Name="TextBlock_TextBlockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TheoretischeVerdienCapaciteit_dbo_Case_Id">
+    <End Role="Case" Type="Self.Case" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TheoretischeVerdienCapaciteit" Type="Self.TheoretischeVerdienCapaciteit" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TheoretischeVerdienCapaciteit">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserSetting_dbo_EndUser_EndUserId">
+    <End Role="EndUser" Type="Self.EndUser" Multiplicity="1" />
+    <End Role="UserSetting" Type="Self.UserSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EndUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSetting">
+        <PropertyRef Name="EndUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DerivedTemplateId">
+    <End Role="Template" Type="Self.Template" Multiplicity="0..1" />
+    <End Role="Template1" Type="Self.Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Template">
+        <PropertyRef Name="TemplateId" />
+      </Principal>
+      <Dependent Role="Template1">
+        <PropertyRef Name="DerivedTemplateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="uwv_bravo_omModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddressCategory" EntityType="Self.AddressCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddressType" EntityType="Self.AddressType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AosCode" EntityType="Self.AosCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArbeidsVerleden" EntityType="Self.ArbeidsVerleden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuthorizedAction" EntityType="Self.AuthorizedAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BravoDocument" EntityType="Self.BravoDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CbbsResult" EntityType="Self.CbbsResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CbsIndex" EntityType="Self.CbsIndex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CbsIndexIkv" EntityType="Self.CbsIndexIkv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomTextBlock" EntityType="Self.CustomTextBlock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiagnoseCode" EntityType="Self.DiagnoseCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiagnoseCodeSection" EntityType="Self.DiagnoseCodeSection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentHistory" EntityType="Self.DocumentHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentVariable" EntityType="Self.DocumentVariable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EndUser" EntityType="Self.EndUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EndUserClient" EntityType="Self.EndUserClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GegevensPeriode" EntityType="Self.GegevensPeriode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HerindexeringMaatman" EntityType="Self.HerindexeringMaatman" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InkomstenOpgave" EntityType="Self.InkomstenOpgave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InkomstenVerhouding" EntityType="Self.InkomstenVerhouding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InkomstenVerhoudingenSet" EntityType="Self.InkomstenVerhoudingenSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LaunchCode" EntityType="Self.LaunchCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaatManLoon" EntityType="Self.MaatManLoon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaatManResultaat" EntityType="Self.MaatManResultaat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedischeBeperking" EntityType="Self.MedischeBeperking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MqMessagesEAED" EntityType="Self.MqMessagesEAED" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MqMessagesMisDb" EntityType="Self.MqMessagesMisDb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfficeAddresses" EntityType="Self.OfficeAddresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OorzaakCode" EntityType="Self.OorzaakCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Popup" EntityType="Self.Popup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PopupText" EntityType="Self.PopupText" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PopupTree" EntityType="Self.PopupTree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PraktischeVerdienCapaciteitResultaat" EntityType="Self.PraktischeVerdienCapaciteitResultaat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrivateAutocorrectList" EntityType="Self.PrivateAutocorrectList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcessOrLaw" EntityType="Self.ProcessOrLaw" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleAuthorizedActions" EntityType="Self.RoleAuthorizedActions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Template" EntityType="Self.Template" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TextBlock" EntityType="Self.TextBlock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TheoretischeVerdienCapaciteit" EntityType="Self.TheoretischeVerdienCapaciteit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSetting" EntityType="Self.UserSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WerkgeverGegevens" EntityType="Self.WerkgeverGegevens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="zTest" EntityType="Self.zTest" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Address_dbo_AddressCategory_AddressCategoryId" Association="Self.FK_dbo_Address_dbo_AddressCategory_AddressCategoryId">
+      <End Role="AddressCategory" EntitySet="AddressCategory" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Address_dbo_AddressType_AddressTypeId" Association="Self.FK_dbo_Address_dbo_AddressType_AddressTypeId">
+      <End Role="AddressType" EntitySet="AddressType" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Address_dbo_Client_Client_Id" Association="Self.FK_dbo_Address_dbo_Client_Client_Id">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AosCode_dbo_LaunchCode_LaunchCodeId" Association="Self.FK_dbo_AosCode_dbo_LaunchCode_LaunchCodeId">
+      <End Role="LaunchCode" EntitySet="LaunchCode" />
+      <End Role="AosCode" EntitySet="AosCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AosCode_dbo_Template_TemplateId" Association="Self.FK_dbo_AosCode_dbo_Template_TemplateId">
+      <End Role="Template" EntitySet="Template" />
+      <End Role="AosCode" EntitySet="AosCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ArbeidsVerleden_dbo_Case_Case_Id" Association="Self.FK_dbo_ArbeidsVerleden_dbo_Case_Case_Id">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="ArbeidsVerleden" EntitySet="ArbeidsVerleden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BravoDocument_dbo_Case_CaseId" Association="Self.FK_dbo_BravoDocument_dbo_Case_CaseId">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="BravoDocument" EntitySet="BravoDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BravoDocument_dbo_Template_TemplateId" Association="Self.FK_dbo_BravoDocument_dbo_Template_TemplateId">
+      <End Role="Template" EntitySet="Template" />
+      <End Role="BravoDocument" EntitySet="BravoDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Case_dbo_Client_ClientId" Association="Self.FK_dbo_Case_dbo_Client_ClientId">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Case" EntitySet="Case" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Case_dbo_LaunchCode_LaunchCodeId" Association="Self.FK_dbo_Case_dbo_LaunchCode_LaunchCodeId">
+      <End Role="LaunchCode" EntitySet="LaunchCode" />
+      <End Role="Case" EntitySet="Case" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Case_dbo_Office_OfficeId" Association="Self.FK_dbo_Case_dbo_Office_OfficeId">
+      <End Role="Office" EntitySet="Office" />
+      <End Role="Case" EntitySet="Case" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Case_dbo_ProcessOrLaw_ProcessOrLawId" Association="Self.FK_dbo_Case_dbo_ProcessOrLaw_ProcessOrLawId">
+      <End Role="ProcessOrLaw" EntitySet="ProcessOrLaw" />
+      <End Role="Case" EntitySet="Case" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Case_dbo_Product_ProductId" Association="Self.FK_dbo_Case_dbo_Product_ProductId">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Case" EntitySet="Case" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CbbsResult_dbo_TheoretischeVerdienCapaciteit_TheoretischeVerdienCapaciteitId" Association="Self.FK_dbo_CbbsResult_dbo_TheoretischeVerdienCapaciteit_TheoretischeVerdienCapaciteitId">
+      <End Role="TheoretischeVerdienCapaciteit" EntitySet="TheoretischeVerdienCapaciteit" />
+      <End Role="CbbsResult" EntitySet="CbbsResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CbsIndexIkv_dbo_InkomstenVerhouding_InkomstenVerhoudingId" Association="Self.FK_dbo_CbsIndexIkv_dbo_InkomstenVerhouding_InkomstenVerhoudingId">
+      <End Role="InkomstenVerhouding" EntitySet="InkomstenVerhouding" />
+      <End Role="CbsIndexIkv" EntitySet="CbsIndexIkv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CustomTextBlock_dbo_EndUser_EndUserId" Association="Self.FK_dbo_CustomTextBlock_dbo_EndUser_EndUserId">
+      <End Role="EndUser" EntitySet="EndUser" />
+      <End Role="CustomTextBlock" EntitySet="CustomTextBlock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DiagnoseCode_dbo_DiagnoseCodeSection_DiagnoseCodeSectionId" Association="Self.FK_dbo_DiagnoseCode_dbo_DiagnoseCodeSection_DiagnoseCodeSectionId">
+      <End Role="DiagnoseCodeSection" EntitySet="DiagnoseCodeSection" />
+      <End Role="DiagnoseCode" EntitySet="DiagnoseCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DocumentHistory_dbo_AuthorizedAction_AuthorizedActionId" Association="Self.FK_dbo_DocumentHistory_dbo_AuthorizedAction_AuthorizedActionId">
+      <End Role="AuthorizedAction" EntitySet="AuthorizedAction" />
+      <End Role="DocumentHistory" EntitySet="DocumentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DocumentHistory_dbo_BravoDocument_BravoDocument_DocumentId" Association="Self.FK_dbo_DocumentHistory_dbo_BravoDocument_BravoDocument_DocumentId">
+      <End Role="BravoDocument" EntitySet="BravoDocument" />
+      <End Role="DocumentHistory" EntitySet="DocumentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DocumentHistory_dbo_EndUser_EndUserId" Association="Self.FK_dbo_DocumentHistory_dbo_EndUser_EndUserId">
+      <End Role="EndUser" EntitySet="EndUser" />
+      <End Role="DocumentHistory" EntitySet="DocumentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DocumentVariable_dbo_BravoDocument_BravoDocument_DocumentId" Association="Self.FK_dbo_DocumentVariable_dbo_BravoDocument_BravoDocument_DocumentId">
+      <End Role="BravoDocument" EntitySet="BravoDocument" />
+      <End Role="DocumentVariable" EntitySet="DocumentVariable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_EndUser_dbo_Role_RoleId" Association="Self.FK_dbo_EndUser_dbo_Role_RoleId">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="EndUser" EntitySet="EndUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_EndUserClient_dbo_Client_Client_Id" Association="Self.FK_dbo_EndUserClient_dbo_Client_Client_Id">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="EndUserClient" EntitySet="EndUserClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_EndUserClient_dbo_EndUser_EndUser_Id" Association="Self.FK_dbo_EndUserClient_dbo_EndUser_EndUser_Id">
+      <End Role="EndUser" EntitySet="EndUser" />
+      <End Role="EndUserClient" EntitySet="EndUserClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_GegevensPeriode_dbo_InkomstenVerhouding_InkomstenVerhoudingId" Association="Self.FK_dbo_GegevensPeriode_dbo_InkomstenVerhouding_InkomstenVerhoudingId">
+      <End Role="InkomstenVerhouding" EntitySet="InkomstenVerhouding" />
+      <End Role="GegevensPeriode" EntitySet="GegevensPeriode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HerindexeringMaatman_dbo_Case_Id" Association="Self.FK_dbo_HerindexeringMaatman_dbo_Case_Id">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="HerindexeringMaatman" EntitySet="HerindexeringMaatman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HerindexeringMaatman_dbo_CbsIndex_CbsIndexHuidigId" Association="Self.FK_dbo_HerindexeringMaatman_dbo_CbsIndex_CbsIndexHuidigId">
+      <End Role="CbsIndex" EntitySet="CbsIndex" />
+      <End Role="HerindexeringMaatman" EntitySet="HerindexeringMaatman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_InkomstenOpgave_dbo_InkomstenVerhouding_InkomstenVerhoudingId" Association="Self.FK_dbo_InkomstenOpgave_dbo_InkomstenVerhouding_InkomstenVerhoudingId">
+      <End Role="InkomstenVerhouding" EntitySet="InkomstenVerhouding" />
+      <End Role="InkomstenOpgave" EntitySet="InkomstenOpgave" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_InkomstenVerhouding_dbo_InkomstenVerhoudingenSet_InkomstenVerhoudingenSetId" Association="Self.FK_dbo_InkomstenVerhouding_dbo_InkomstenVerhoudingenSet_InkomstenVerhoudingenSetId">
+      <End Role="InkomstenVerhoudingenSet" EntitySet="InkomstenVerhoudingenSet" />
+      <End Role="InkomstenVerhouding" EntitySet="InkomstenVerhouding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_InkomstenVerhouding_dbo_WerkgeverGegevens_WerkgeverGegevensId" Association="Self.FK_dbo_InkomstenVerhouding_dbo_WerkgeverGegevens_WerkgeverGegevensId">
+      <End Role="WerkgeverGegevens" EntitySet="WerkgeverGegevens" />
+      <End Role="InkomstenVerhouding" EntitySet="InkomstenVerhouding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_InkomstenVerhoudingenSet_dbo_Case_CaseId" Association="Self.FK_dbo_InkomstenVerhoudingenSet_dbo_Case_CaseId">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="InkomstenVerhoudingenSet" EntitySet="InkomstenVerhoudingenSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MaatManLoon_dbo_InkomstenVerhouding_MaatManLoonId" Association="Self.FK_dbo_MaatManLoon_dbo_InkomstenVerhouding_MaatManLoonId">
+      <End Role="InkomstenVerhouding" EntitySet="InkomstenVerhouding" />
+      <End Role="MaatManLoon" EntitySet="MaatManLoon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MaatManResultaat_dbo_InkomstenVerhoudingenSet_Id" Association="Self.FK_dbo_MaatManResultaat_dbo_InkomstenVerhoudingenSet_Id">
+      <End Role="InkomstenVerhoudingenSet" EntitySet="InkomstenVerhoudingenSet" />
+      <End Role="MaatManResultaat" EntitySet="MaatManResultaat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MedischeBeperking_dbo_Case_Id" Association="Self.FK_dbo_MedischeBeperking_dbo_Case_Id">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="MedischeBeperking" EntitySet="MedischeBeperking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OfficeAddresses_dbo_Address_AddressID" Association="Self.FK_dbo_OfficeAddresses_dbo_Address_AddressID">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="OfficeAddresses" EntitySet="OfficeAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OfficeAddresses_dbo_Office_OfficeID" Association="Self.FK_dbo_OfficeAddresses_dbo_Office_OfficeID">
+      <End Role="Office" EntitySet="Office" />
+      <End Role="OfficeAddresses" EntitySet="OfficeAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Popup_dbo_BravoDocument_DocumentId" Association="Self.FK_dbo_Popup_dbo_BravoDocument_DocumentId">
+      <End Role="BravoDocument" EntitySet="BravoDocument" />
+      <End Role="Popup" EntitySet="Popup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_PraktischeVerdienCapaciteitResultaat_dbo_InkomstenVerhoudingenSet_Id" Association="Self.FK_dbo_PraktischeVerdienCapaciteitResultaat_dbo_InkomstenVerhoudingenSet_Id">
+      <End Role="InkomstenVerhoudingenSet" EntitySet="InkomstenVerhoudingenSet" />
+      <End Role="PraktischeVerdienCapaciteitResultaat" EntitySet="PraktischeVerdienCapaciteitResultaat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_PrivateAutocorrectList_dbo_EndUser_EndUserId" Association="Self.FK_dbo_PrivateAutocorrectList_dbo_EndUser_EndUserId">
+      <End Role="EndUser" EntitySet="EndUser" />
+      <End Role="PrivateAutocorrectList" EntitySet="PrivateAutocorrectList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProcessOrLaw_dbo_Address_LawReplyAddressId" Association="Self.FK_dbo_ProcessOrLaw_dbo_Address_LawReplyAddressId">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="ProcessOrLaw" EntitySet="ProcessOrLaw" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Product_dbo_LaunchCode_LaunchCodeId" Association="Self.FK_dbo_Product_dbo_LaunchCode_LaunchCodeId">
+      <End Role="LaunchCode" EntitySet="LaunchCode" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Product_dbo_ProcessOrLaw_ProcessOrLawId" Association="Self.FK_dbo_Product_dbo_ProcessOrLaw_ProcessOrLawId">
+      <End Role="ProcessOrLaw" EntitySet="ProcessOrLaw" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RoleAuthorizedActions_dbo_AuthorizedAction_AuthorizedActionId" Association="Self.FK_dbo_RoleAuthorizedActions_dbo_AuthorizedAction_AuthorizedActionId">
+      <End Role="AuthorizedAction" EntitySet="AuthorizedAction" />
+      <End Role="RoleAuthorizedActions" EntitySet="RoleAuthorizedActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RoleAuthorizedActions_dbo_DocumentType_DocumentTypeId" Association="Self.FK_dbo_RoleAuthorizedActions_dbo_DocumentType_DocumentTypeId">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="RoleAuthorizedActions" EntitySet="RoleAuthorizedActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RoleAuthorizedActions_dbo_Role_RoleId" Association="Self.FK_dbo_RoleAuthorizedActions_dbo_Role_RoleId">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="RoleAuthorizedActions" EntitySet="RoleAuthorizedActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Template_dbo_DocumentType_BRaVoDocumentTypeId" Association="Self.FK_dbo_Template_dbo_DocumentType_BRaVoDocumentTypeId">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="Template" EntitySet="Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Template_dbo_Template_DerivedTemplate_TemplateId" Association="Self.FK_dbo_Template_dbo_Template_DerivedTemplate_TemplateId">
+      <End Role="Template" EntitySet="Template" />
+      <End Role="Template1" EntitySet="Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TextBlock_dbo_BravoDocument_BravoDocument_DocumentId" Association="Self.FK_dbo_TextBlock_dbo_BravoDocument_BravoDocument_DocumentId">
+      <End Role="BravoDocument" EntitySet="BravoDocument" />
+      <End Role="TextBlock" EntitySet="TextBlock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TextBlock_dbo_TextBlock_TextBlock_TextBlockId" Association="Self.FK_dbo_TextBlock_dbo_TextBlock_TextBlock_TextBlockId">
+      <End Role="TextBlock" EntitySet="TextBlock" />
+      <End Role="TextBlock1" EntitySet="TextBlock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TheoretischeVerdienCapaciteit_dbo_Case_Id" Association="Self.FK_dbo_TheoretischeVerdienCapaciteit_dbo_Case_Id">
+      <End Role="Case" EntitySet="Case" />
+      <End Role="TheoretischeVerdienCapaciteit" EntitySet="TheoretischeVerdienCapaciteit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserSetting_dbo_EndUser_EndUserId" Association="Self.FK_dbo_UserSetting_dbo_EndUser_EndUserId">
+      <End Role="EndUser" EntitySet="EndUser" />
+      <End Role="UserSetting" EntitySet="UserSetting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DerivedTemplateId" Association="Self.FK_DerivedTemplateId">
+      <End Role="Template" EntitySet="Template" />
+      <End Role="Template1" EntitySet="Template" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

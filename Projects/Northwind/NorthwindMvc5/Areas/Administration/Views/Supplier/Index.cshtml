@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NorthwindMvc5.Areas.Administration.Models.SupplierModel>
+
+@using NorthwindMvc5.Resources
+
+@{
+    ViewBag.Title = SupplierResource.Title;
+}
+
+<h2>@SupplierResource.Index</h2>
+
+<p>
+    @Html.ActionLink(SupplierResource.CreateNew, "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.ActionLink(SupplierResource.Edit, "Edit", new { id = item.SupplierID }) |
+            @Html.ActionLink(SupplierResource.Details, "Details", new { id = item.SupplierID }) |
+            @Html.ActionLink(SupplierResource.Delete, "Delete", new { id = item.SupplierID })
+        </td>
+    </tr>
+}
+
+</table>

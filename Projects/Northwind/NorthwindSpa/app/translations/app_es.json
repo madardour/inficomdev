@@ -1,0 +1,22 @@
+﻿{
+    "createNew": "Crear nuevo",
+    "edit": "Editar",
+    "details": "Detalles",
+    "delete": "Eliminar",
+    
+    "create":  "Crear",
+    "required": "(*) Requerido",
+    "cancel": "Cancelar",
+
+    "save": "Guardar",
+
+    "deleteConfirmation":  "¿Está seguro que desea eliminar este registro?",
+
+    "shippers": "Expedidores",
+    "shipper": "Expedidor",
+    "shipperID": "ID",
+    "companyName": "Nombre de compañía",
+    "phone": "Teléfono",
+    "companyNameMaxLength": "(?) Must be at least 80 characters long",
+    "phoneMaxLength": "(?) Must be at least 48 characters long"
+}

@@ -1,0 +1,4 @@
+Entity framework:
+-----------------
+enable-migrations -force
+add-migration update01

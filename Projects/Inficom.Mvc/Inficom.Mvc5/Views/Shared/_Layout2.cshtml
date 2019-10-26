@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout2</title>
+</head>
+<body>
+    <h1>@ViewBag.Title</h1>
+    <div id="main-content">@RenderBody()</div>
+    @RenderSection("scripts", required: false)
+
+    <footer>@RenderSection("Footer", required: false)</footer>
+</body>
+</html>

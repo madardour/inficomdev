@@ -1,0 +1,42 @@
+﻿@model NorthwindMvc5.Areas.Administration.Models.ShipperModel
+
+@using NorthwindMvc5.Resources;
+
+@{
+    ViewBag.Title = ShipperResource.Delete;
+}
+
+<h2>@ShipperResource.Delete</h2>
+
+<h3>@ShipperResource.DeleteConfirmation</h3>
+<div>
+    <h4>@ShipperResource.Shipper</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="@ShipperResource.Delete" class="btn btn-default" /> |
+            @Html.ActionLink(ShipperResource.BackToList, "Index")
+        </div>
+    }
+</div>
