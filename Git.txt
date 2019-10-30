@@ -1,0 +1,62 @@
+Githup: https://github.com/madardour/inficomdev.git
+OnlineVS: https://inficom.visualstudio.com/INFICOM/_git/Inficom.Demo
+
+VIM:
+ESC :x	:save and exit
+ESC :wq	:write and exit
+
+GIT:
+git --help	:get help info
+git init	:Setting up a new repository
+echo "some text" >> file.txt	:adding a file
+git add file.txt	:add file to index for commit
+git commit -m "your comment"	: commit file
+git status	:get status info
+git add .	: add all modifications to index
+git add -A	: add all modifications to index
+git add *.txt	: add all txt files
+git chechout --myfile.txt	: reset/revert/unmodifying file
+git rm --cached <file or folder>	:remove from index, unstage
+git log	:viewing the history
+git config user.name "Mohamed"	:change config item
+.gitignore	:filename te ignore files from commits
+git tag –a MyTagName –m "comments"	:add tags
+git branch	:show list of branches
+git branch NewWork	:create new branch
+git checkout NewWork	:Switching from branch to branch
+git checkout –	:go back to previous branch	
+git log --graph --decorate --pretty=oneline --abbrev-commit	:pretty output log
+git config --global alias.tree 'log --graph --decorate --pretty=oneline --abbrev-commit'	:create alias voor command
+git merge NewWork	:merge from branch
+cat <filename>	:show differences after merge
+git diff master..NewWork	:differences between the master and NewWork
+git log NewWork..master	:check differences
+git shortlog NewWork..master	:check differences
+git stash	:save uncommit modifications, work in progress
+git stash apply	:apply the stash to get back to the previous "work in progress" situation
+----
+git config --global http.proxy 10.122.74.1:3128
+git clone https://inficom.visualstudio.com/INFICOM/_git/Inficom.Demo
+git clone https://madardour:Mhmd1234@github.com/madardour/inficomdev.git
+----
+git push	:sends commits to remote repo
+git checkout –b Pasta	:create and checkout new branch
+git push -u origin NewWork
+git remote -v	:show list of remotes in repo
+git fetch	:check for remote commits, then git status for more details
+git pull	:merge remote commits to local
+git remote add origin <remoteUrl> :add remote to local repp
+git puch - u origin NewWork 	:push new repo to server
+git remote add upstream <remoteUrl>	:add upstream to a forked repo (Forking a repo is a feature in GitHub).
+*git config --global push.default simple	:push only when there is a remote branch with the same name
+git config --global --unset alias.cm	:remove an alias
+git commit --amend -m "New commit message"	:change messange last commit
+git blame <filename> command	:Tracing changes in a file
+git show <commit-hash>	:show a commit
+git cherry-pick <commit-hash>	:get a specific commit
+git init --bare NewRepository.git	:create a central git respository
+git clone --bare my_project my_project.git	:convert a local repo to a bare repo on server
+git archive master --format=zip --output=../repbck.zip	:archive a repo
+git archive HEAD --format=zip --output=../headbck.zip	:archive the last commit
+git bundle create ../repo.bundle master	:bundle a repo for restoring on auther machine
+git clone repo.bundle repo -b master	:clone repo based on a bundle
