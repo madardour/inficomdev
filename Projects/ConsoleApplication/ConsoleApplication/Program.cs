@@ -1,27 +1,34 @@
 ﻿using Newtonsoft.Json;
+using OpenXmlTools;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Core.Objects;
+using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Schema;
 using System.Xml.XPath;
 using UWV.BRAVO.DAL.Contexts;
 using UWV.BRAVO.DAL.Interfaces;
 using UWV.BRAVO.DAL.Repositories;
 using UWV.BRAVO.Domain;
+using UWV.BRAVO.Domain.Document;
 using UWV.BRAVO.Domain.Enums;
 using UWV.BRAVO.Domain.Rekentool;
-using UWV.BRAVO.RAPTOR;
-using UWV.BRAVO.RAPTOR.Controllers;
-using Service = UWV.BRAVO.RAPTOR.BravoRekenToolResultaat;
+using UWV.BRAVO.RAPTOR.BravoReport;
+using UWV.BRAVO.RAPTOR.Models;
+using UWV.BRAVO.RAPTOR.Services;
 
 namespace ConsoleApplication
 {
     class Program
     {
         readonly static DocumentContext context = new DocumentContext();
+        readonly static TemplateRepository _templateRepository = new TemplateRepository(context);
+        readonly static DocumentRepository _documentRepository = new DocumentRepository(context);
+        // readonly static BravoXmlTemplate _bravoXmlTemplate = new BravoXmlTemplate();
 
         static void Main(string[] args)
         {
@@ -35,19 +42,22 @@ namespace ConsoleApplication
                 //DeleteHim();
                 //DeletePVC();
                 //LockCase();
+                //GetDiagnoseJsonData();
+                //ValidateXml();
+                //Bravo();
 
-                int numberOfResult = 5;
-                //var mqMessagesEAEDs = context.MqMessagesEAED.Select(m => new MqMessagesEAED
-                //{
-                //    Id = m.Id,
-                //    RequestId = m.RequestId,
-                //    DateSend = m.DateSend,
-                //    Remarks = m.Remarks
-                //}).Take(numberOfResult).ToListAsync();
+                InkomstenVerhoudingenSet ikvSet = context.InkomstenVerhoudingenSets.Where(i => i.Id == 402)
+                .Include(mml => mml.MaatManResultaat)
+                .Include(pvc => pvc.PraktischeVerdienCapaciteitResultaat).FirstOrDefault();
 
-                var count = context.MqMessagesEAED.Count();
+                context.Entry(ikvSet)
+                .Collection(x => x.InkomstenVerhoudingen).Query().OrderBy(ikv => ikv.InkomstenVerhoudingId)
+                .Include(a => a.InkomstenOpgaven)
+                .Include(b => b.GegevensPerioden)
+                .Include(c => c.CbsIndices)
+                .Include(e => e.MaatManLoon)
+                .Load();
 
-                Console.WriteLine(count);
                 Console.WriteLine("Done");
                 Console.ReadKey();
             }
@@ -55,7 +65,111 @@ namespace ConsoleApplication
             {
                 // log exception                
                 Console.WriteLine(ex.ToString());
+                Console.ReadKey();
             }
+        }
+
+        public static void Bravo()
+        {
+            try
+            {
+                BravoDocument bravoDocument = _documentRepository.GetBravoDocumentExtended("de088238-f7f4-4783-afba-7d998c6c8a8e");
+                string xmlFile = @"E:\\Users\\Mad\Git\\Bravo\\UWV.BRAVO.RAPTOR\\Data\\DataBRaVo_template.xml";
+                string xsdPath = @"E:\\Users\\Mad\Git\\Bravo\\UWV.BRAVO.RAPTOR\\Data\\DataBraVo.xsd";
+               
+                XmlDocument newXml = new XmlDocument();
+                newXml.Load(xmlFile);
+                newXml.Schemas.Add(null, xsdPath);
+
+                try
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.LoadXml(bravoDocument.BravoDocumentExtended.DocumentXmlVariables);
+
+                    XElement docVarsSource = XElement.Parse(bravoDocument.BravoDocumentExtended.DocumentXmlVariables);
+                    XElement docVarsTarget = XElement.Parse(newXml.OuterXml);
+                    
+
+                    //var elements = docVarsTarget.XPathSelectElements("//*[normalize-space(text()) = '#']");
+                    var elements = docVarsSource.Descendants().Where(descendent => !descendent.HasElements);
+                    foreach (XElement el in elements)
+                    {   
+                        Console.WriteLine(el.Value);
+
+                        if (el.Parent.GetXPath().Contains("["))
+                        {
+                            //Console.WriteLine(el.Parent.GetXPath());
+                        }
+                        else
+                        {
+                            XElement nodeTarget = docVarsTarget.XPathSelectElement(el.GetXPath().Replace("DataBRaVo", "."));
+                            if (nodeTarget != null)
+                            {
+                                nodeTarget.SetValue(el.Value);
+                            }
+                        }
+                        
+                    }
+
+                    newXml.LoadXml(docVarsTarget.ToString());
+                    //Console.WriteLine(newXml.OuterXml);
+
+                    //newXml.Validate(null);
+                    //Console.WriteLine("valid");
+                }
+                catch (XmlSchemaValidationException ex)
+                {
+                    Console.WriteLine("not valid: " + ex.Message);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
+
+
+        private static void ValidateXml()
+        {
+            string curDir = Environment.CurrentDirectory;
+            string rootDir = Path.Combine(curDir, "..\\..\\TestData");
+            Console.WriteLine(new Uri(rootDir).AbsolutePath);
+            string xmlPath = Path.Combine(curDir.Replace("bin\\Debug", ""), "Xml");
+            string xsdPath = Path.Combine(curDir.Replace("bin\\Debug", ""), "DataBraVo.xsd");
+
+            foreach (string xmlFile in Directory.EnumerateFiles(xmlPath, "*.xml"))
+            {
+                XmlDocument xml = new XmlDocument();
+                xml.Load(xmlFile);
+                xml.Schemas.Add(null, xsdPath);
+
+                try
+                {
+                    xml.Validate(null);
+                    Console.WriteLine("valid:" + xmlFile);
+                }
+                catch (XmlSchemaValidationException ex)
+                {
+                    Console.WriteLine("not valid: " + ex.Message);
+                }
+            }
+
+        }
+
+        private static void GetDiagnoseJsonData()
+        {
+
+            var diagnoseModel = new Diagnosecodes();
+            diagnoseModel.DiagnoseCodeSections = context.DiagnoseCodeSections.Distinct().ToList();
+            diagnoseModel.DiagnoseCodes = context.DiagnoseCodes.Distinct().Take(1).ToList();
+            diagnoseModel.DiagnoseCodes[0].DiagnoseCodeSectionId = 0;
+            var diagnoseJsonData = JsonConvert.SerializeObject(diagnoseModel, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore, Formatting = Newtonsoft.Json.Formatting.Indented });
+
+            //1258
+            Console.WriteLine(diagnoseJsonData.Length);
         }
 
         private static int DoCalc()
@@ -67,8 +181,6 @@ namespace ConsoleApplication
 
         private static T GetEnumValueFromXmlAttrName<T>(string attribVal)
         {
-            
-
             var baseType = typeof(T).BaseType;
 #pragma warning disable CS0219 // The variable 'val2' is assigned but its value is never used
             var val2 = default(T);
@@ -85,13 +197,6 @@ namespace ConsoleApplication
             return val;
         }
 
-        static void LockCase()
-        {            
-            ICollection<Case> cases = context.Cases
-                .Include(c => c.EndUsers).Where(c => c.EndUsers.Count != 0).ToList();
-
-            Console.WriteLine(cases.Count);
-        }
         public static string ComposeErrorMessageByCode(string messageCode, Dictionary<string, string> replaceDictionary = null)
         {
             var errorMessage = string.Format("Ophalen melding met code '{0}' mislukt. Standaard foutmelding wordt getoond.", messageCode);
@@ -151,7 +256,7 @@ namespace ConsoleApplication
 
             Console.WriteLine("klaar");
         }
-            static void DeleteHim()
+        static void DeleteHim()
         {
             int caseId = 1;
 
@@ -181,13 +286,11 @@ namespace ConsoleApplication
             //    .Include( i => i.InkomstenVerhoudingen.Select( c => c.WerkgeverGegevens ))
 
             InkomstenVerhoudingenSet currentIkvSet = context.InkomstenVerhoudingenSets.AsQueryable()
-                .Where(i => i.CaseId == 1 && i.TypeInkomstenVerhoudingSet == TypeInkomstenVerhoudingSet.MaatManLoon)
-                .Include(v => v.InkomstenVerhoudingen.Select(c => c.WerkgeverGegevens)).FirstOrDefault();
+                .Where(i => i.CaseId == 1 && i.TypeInkomstenVerhoudingSet == TypeInkomstenVerhoudingSet.MaatManLoon).FirstOrDefault();
 
             foreach (var ikv in currentIkvSet.InkomstenVerhoudingen.Where(x => x.CodeHerKomst == CodeHerkomstInkomstenVerhouding.Automatisch).ToList())
             {
-                context.Entry(ikv.WerkgeverGegevens).State = EntityState.Deleted;
-                context.Entry(ikv).State = EntityState.Deleted;                
+                context.Entry(ikv).State = EntityState.Deleted;
             }
 
             //Console.WriteLine(currentIkvSet.InkomstenVerhoudingen.First().DatumBegin);
@@ -211,12 +314,12 @@ namespace ConsoleApplication
             {
                 Console.WriteLine("Empty");
             }
-            
+
         }
 
         static void GetCaseDocument()
         {
-            string processId = "4792e037-8969-477b-ae4b-3e0fb0209dba";            
+            string processId = "4792e037-8969-477b-ae4b-3e0fb0209dba";
             IDocumentRepository _documentRepository = new DocumentRepository(context);
 
             Console.WriteLine(context.Database.Connection.ConnectionString);
@@ -279,7 +382,7 @@ namespace ConsoleApplication
                     default:
                         break;
                 }
-                
+
                 //Console.WriteLine(e.Value);
             }
 
@@ -292,7 +395,7 @@ namespace ConsoleApplication
 
         }
 
-            static void GetJson()
+        static void GetJson()
         {
             string data = "[{\"id\":\"MEC30_x1_EZWB\",\"text\":\"EZWB\",\"icon\":\"glyphicon glyphicon-minus\",\"li_attr\":{\"id\":\"MEC30_x1_EZWB\",\"title\":\"EZWB\",\"name\":\"MEC30_x1_EZWB\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"standard\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x1_EZWB_anchor\"},\"state\":{\"loaded\":true,\"opened\":true,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"standard\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"standard\"}},\"children\":[{\"id\":\"MEC30_x11_EZWB\",\"text\":\"EZWB\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x11_EZWB\",\"title\":\"EZWB\",\"name\":\"MEC30_x11_EZWB\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x11_EZWB_anchor\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x12_EZWB_ERD\",\"text\":\"EZWB ERD\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x12_EZWB_ERD\",\"title\":\"EZWB ERD\",\"name\":\"MEC30_x12_EZWB_ERD\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x12_EZWB_ERD_anchor\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"}],\"type\":\"standard\"},{\"id\":\"MEC30_x2_TVB2\",\"text\":\"TVB2\",\"icon\":\"glyphicon glyphicon-minus\",\"li_attr\":{\"id\":\"MEC30_x2_TVB2\",\"title\":\"TVB2\",\"name\":\"MEC30_x2_TVB2\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"standard\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x2_TVB2_anchor\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"standard\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"standard\"}},\"children\":[{\"id\":\"MEC30_x21_TVB2\",\"text\":\"TVB2\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x21_TVB2\",\"title\":\"TVB2\",\"name\":\"MEC30_x21_TVB2\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x22_TVB2_ERD\",\"text\":\"TVB2_ERD\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x22_TVB2_ERD\",\"title\":\"TVB2_ERD\",\"name\":\"MEC30_x22_TVB2_ERD\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"}],\"type\":\"standard\"},{\"id\":\"MEC30_x3_Eerste_claim\",\"text\":\"Eerste claim (per einde wachttijd) \",\"icon\":\"glyphicon glyphicon-minus\",\"li_attr\":{\"id\":\"MEC30_x3_Eerste_claim\",\"title\":\"Eerste claim (per einde wachttijd)\",\"name\":\"MEC30_x3_Eerste_claim\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"standard\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x3_Eerste_claim_anchor\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"standard\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"standard\"}},\"children\":[{\"id\":\"MEC30_x31_WIA\",\"text\":\"WIA\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x31_WIA\",\"title\":\"WIA\",\"name\":\"MEC30_x31_WIA\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x32_WAO\",\"text\":\"WAO\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x32_WAO\",\"title\":\"WAO\",\"name\":\"MEC30_x32_WAO\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x33_WAZ\",\"text\":\"WAZ\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x33_WAZ\",\"title\":\"WAZ\",\"name\":\"MEC30_x33_WAZ\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"}],\"type\":\"standard\"},{\"id\":\"MEC30_x4_Herziening_herbeoordeling\",\"text\":\"Herziening/herbeoordeling\",\"icon\":\"glyphicon glyphicon-minus\",\"li_attr\":{\"id\":\"MEC30_x4_Herziening_herbeoordeling\",\"title\":\"Herziening/herbeoordeling\",\"name\":\"MEC30_x4_Herziening_herbeoordeling\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"standard\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x4_Herziening_herbeoordeling_anchor\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"standard\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"standard\"}},\"children\":[{\"id\":\"MEC30_x41_WIA_na_einde_wachttijd\",\"text\":\"WIA na einde wachttijd\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x41_WIA_na_einde_wachttijd\",\"title\":\"WIA na einde wachttijd\",\"name\":\"MEC30_x41_WIA_na_einde_wachttijd\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x42_WIA_herleving\",\"text\":\"WIA herleving\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x42_WIA_herleving\",\"title\":\"WIA herleving\",\"name\":\"MEC30_x42_WIA_herleving\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x43_WIA_herziening\",\"text\":\"WIA herziening\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x43_WIA_herziening\",\"title\":\"WIA herziening\",\"name\":\"MEC30_x43_WIA_herziening\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x44_WAO_na_einde_wachttijd\",\"text\":\"WAO na einde wachttijd\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x44_WAO_na_einde_wachttijd\",\"title\":\"WAO na einde wachttijd\",\"name\":\"MEC30_x44_WAO_na_einde_wachttijd\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x45_WAO_Amber\",\"text\":\"WAO AMBER\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x45_WAO_Amber\",\"title\":\"WAO AMBER\",\"name\":\"MEC30_x45_WAO_Amber\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x46_WAZ\",\"text\":\"WAZ\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x46_WAZ\",\"title\":\"WAZ\",\"name\":\"MEC30_x46_WAZ\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"}],\"type\":\"standard\"},{\"id\":\"MEC30_x5_Aanvraag_voorziening\",\"text\":\"Aanvraag voorziening\",\"icon\":\"glyphicon glyphicon-minus\",\"li_attr\":{\"id\":\"MEC30_x5_Aanvraag_voorziening\",\"title\":\"Aanvraag voorziening\",\"name\":\"MEC30_x5_Aanvraag_voorziening\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"standard\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x5_Aanvraag_voorziening_anchor\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"standard\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"standard\"}},\"children\":[{\"id\":\"MEC30_x51_Voorziening\",\"text\":\"Aanvraag voorziening\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x51_Voorziening\",\"title\":\"Aanvraag voorziening\",\"name\":\"MEC30_x51_Voorziening\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x52_Voortzetting_voorziening\",\"text\":\"Voortzetting voorziening\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x52_Voortzetting_voorziening\",\"title\":\"Voortzetting voorziening\",\"name\":\"MEC30_x52_Voortzetting_voorziening\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"}],\"type\":\"standard\"},{\"id\":\"MEC30_x6_Overig\",\"text\":\"Overig\",\"icon\":\"glyphicon glyphicon-minus\",\"li_attr\":{\"id\":\"MEC30_x6_Overig\",\"title\":\"Overig\",\"name\":\"MEC30_x6_Overig\",\"state\":\"2\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":true, \\\"type\\\":\\\"standard\\\"}\"},\"a_attr\":{\"href\":\"#\",\"id\":\"MEC30_x6_Overig_anchor\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":true,\"disabled\":false,\"enabled\":true,\"type\":\"standard\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":true,\"type\":\"standard\"}},\"children\":[{\"id\":\"MEC30_x61_Verlenging_no_risk_polis\",\"text\":\"Verlenging No-riskpolis\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x61_Verlenging_no_risk_polis\",\"title\":\"Verlenging No-riskpolis\",\"name\":\"MEC30_x61_Verlenging_no_risk_polis\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"},{\"id\":\"MEC30_x62_Ophogen_uitkering_hulpbehoevendheid\",\"text\":\"Ophogen uitkering hulpbehoevendheid\",\"icon\":\"glyphicon glyphicon-text-size\",\"li_attr\":{\"id\":\"MEC30_x62_Ophogen_uitkering_hulpbehoevendheid\",\"title\":\"Ophogen uitkering hulpbehoevendheid\",\"name\":\"MEC30_x62_Ophogen_uitkering_hulpbehoevendheid\",\"state\":\"0\",\"data-jstree\":\"{\\\"enabled\\\":true,\\\"selected\\\":false,\\\"type\\\":\\\"textblock\\\"}\"},\"a_attr\":{\"href\":\"#\"},\"state\":{\"loaded\":true,\"opened\":false,\"selected\":false,\"disabled\":false,\"enabled\":true,\"type\":\"textblock\"},\"data\":{\"jstree\":{\"enabled\":true,\"selected\":false,\"type\":\"textblock\"}},\"children\":[],\"type\":\"textblock\"}],\"type\":\"standard\"}]";
 

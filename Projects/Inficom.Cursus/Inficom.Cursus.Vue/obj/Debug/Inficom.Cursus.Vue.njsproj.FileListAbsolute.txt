@@ -1,0 +1,2 @@
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Vue\obj\Debug\Inficom.Cursus.Vue.njsprojAssemblyReference.cache
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Vue\bin\Microsoft.NodejsTools.WebRole.dll

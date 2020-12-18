@@ -36,11 +36,13 @@ namespace Inficom.Mvc5.Models
 
         public String ShipCountry { get; set; }
 
-        public virtual Customer Customers { get; set; }
+        //public ICollection<OrderRelated> RelatedOrders { get; private set; }
 
-        public virtual Employee Employees { get; set; }
+        //public virtual Customer Customers { get; set; }
 
-        public virtual Shipper Shippers { get; set; }
+        //public virtual Employee Employees { get; set; }
+
+        //public virtual Shipper Shippers { get; set; }
 
     }
 }

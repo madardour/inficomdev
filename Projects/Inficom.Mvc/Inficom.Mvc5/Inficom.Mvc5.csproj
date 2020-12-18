@@ -17,7 +17,7 @@
     <AssemblyName>Inficom.Mvc5</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -200,13 +200,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902131329533_first.cs" />
-    <Compile Include="Migrations\201902131329533_first.Designer.cs">
-      <DependentUpon>201902131329533_first.cs</DependentUpon>
+    <Compile Include="Migrations\202008241059197_first.cs" />
+    <Compile Include="Migrations\202008241059197_first.Designer.cs">
+      <DependentUpon>202008241059197_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902260857069_update01.cs" />
-    <Compile Include="Migrations\201902260857069_update01.Designer.cs">
-      <DependentUpon>201902260857069_update01.cs</DependentUpon>
+    <Compile Include="Migrations\202008241105081_update01.cs" />
+    <Compile Include="Migrations\202008241105081_update01.Designer.cs">
+      <DependentUpon>202008241105081_update01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InficomMvcInitializer.cs" />
@@ -218,6 +218,7 @@
     <Compile Include="Models\EmployeeTerritory.cs" />
     <Compile Include="Models\InficomMvcContext.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderRelated.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\OrderDetailSummary.cs" />
     <Compile Include="Models\Product.cs" />
@@ -717,11 +718,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902131329533_first.resx">
-      <DependentUpon>201902131329533_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008241059197_first.resx">
+      <DependentUpon>202008241059197_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902260857069_update01.resx">
-      <DependentUpon>201902260857069_update01.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008241105081_update01.resx">
+      <DependentUpon>202008241105081_update01.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

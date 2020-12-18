@@ -22,12 +22,12 @@ namespace Inficom.Mvc5.Repositories
 
         public Product GetById(int? id)
         {
-            return _context.Products.Find(id);
+            return null; // _context.Products.Find(id);
         }
 
         public IEnumerable<Product> GetProducts()
         {
-            return _context.Products;
+            return null; // _context.Products;
         }
 
         public async Task<Product> AddAsync(Product product)

@@ -1,6 +1,36 @@
+Used commands:
+git reset --hard HEAD	: reset all local changes
+git checkout master
+git cherry-pick 885fdcd
+
+Branch maken obv een (deleted) commit:
+git reflog  : bepaal welke commit, bijv. 885fdcd?
+git chechout -b hotfix 885fdcd
+
+Local master gelijk trekken met remote:
+git fetch origin
+git reset --hard origin/master
+
+View folder history:
+git log --pretty=format:"%h%x09%an%x09%ad%x09%s" UWV.BRAVO.XLDeploy/Database/SqlScripts
+
+Revert file:
+git chechout commitId "file path"
+
+Dir changes:
+git diff d67a1eee HEAD UWV.BRAVO.XLDeploy/EnvironmentSettings
+git diff HEAD~1 HEAD UWV.BRAVO.XLDeploy/EnvironmentSettings
+
+Tagging:
+git tag					:list tags
+git tag -l "v1.8.5*"	: list tags startWith
+git tag -a v1.4 -m "my version 1.4"	: create tag with message
+git show v1.4 -lw	: show tag
+git tag -a v1.1.78 1088b252		: tag a commit
+
+-----------------------------------------------------------
 Githup: https://github.com/madardour/inficomdev.git
 OnlineVS: https://inficom.visualstudio.com/INFICOM/_git/Inficom.Demo
-
 VIM:
 ESC :x	:save and exit
 ESC :wq	:write and exit
@@ -11,11 +41,12 @@ git init	:Setting up a new repository
 echo "some text" >> file.txt	:adding a file
 git add file.txt	:add file to index for commit
 git commit -m "your comment"	: commit file
-git status	:get status info
+git status	: get status info
 git add .	: add all modifications to index
 git add -A	: add all modifications to index
 git add *.txt	: add all txt files
-git chechout --myfile.txt	: reset/revert/unmodifying file
+git checkout --myfile.txt	: reset/revert/unmodifying file
+git reset --hard HEAD	: reset all local changes
 git rm --cached <file or folder>	:remove from index, unstage
 git log	:viewing the history
 git config user.name "Mohamed"	:change config item
@@ -25,7 +56,7 @@ git branch	:show list of branches
 git branch NewWork	:create new branch
 git checkout NewWork	:Switching from branch to branch
 git checkout –	:go back to previous branch	
-git log --graph --decorate --pretty=oneline --abbrev-commit	:pretty output log
+git log --graph --decorate --pretty=oneline --abbrev-commit		:pretty output log
 git config --global alias.tree 'log --graph --decorate --pretty=oneline --abbrev-commit'	:create alias voor command
 git merge NewWork	:merge from branch
 cat <filename>	:show differences after merge

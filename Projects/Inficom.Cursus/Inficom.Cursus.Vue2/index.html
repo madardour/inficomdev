@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Inficom.Cursus.Vue</title>
+	<script src="vue.js"></script>
+
+	<style>
+		div {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="app">
+		<div>
+			<ol>
+				<todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+			</ol>
+		</div>
+
+		<p>{{ a }}</p>
+		<!-- this will no longer update `foo`! -->
+		<div v-once>{{ a }}</div>
+		<div v-bind:id="myId" v-html="b"></div>
+		<div>{{ isOk ? 'YES' : 'NO' }}</div>
+		<div>{{ message.split(' ').join(' | ') }}</div>
+		<div id="app-3">
+			<span v-if="seen">Now you see me</span>
+		</div>
+		<div>
+			<span v-bind:title="message2">
+				Hover your mouse over me for a few seconds
+				to see my dynamically bound title!
+			</span>
+		</div>
+		<button v-bind:disabled="!isOk" v-on:click="a = '2'">Change it</button>
+
+		<div>
+			<input v-model="message5">
+			<p>{{ message5 }}</p>
+			<button v-on:click="reverseMessage">Reverse Message</button>
+
+		</div>
+
+	</div>
+
+	<script>
+
+		Vue.component('todo-item', {
+			props: ['todo'],
+			template: '<li>{{ todo.text }}</li>'
+		})
+
+		var data = {
+			message: 'Mohamed Nadia Maroua Adam',
+			myId: 'RedText',
+			isOk: false,
+			seen: true,
+			a: 1,
+			b: '<span style="color:red">this should be red</span>',
+			message2: 'You loaded this page on ' + new Date().toLocaleString(),
+			message5: 'Hallo mohamed',
+			groceryList: [
+				{ id: 0, text: 'Vegetables' },
+				{ id: 1, text: 'Cheese' },
+				{ id: 2, text: 'Whatever else humans are supposed to eat' }
+			]
+		}
+
+		//Object.freeze(data)
+
+		var vm = new Vue({
+			el: '#app',
+			data: data,
+			methods: {
+				reverseMessage: function () {
+					this.message5 = this.message5.split('').reverse().join('')
+				}
+			}
+		});
+
+		vm.$watch('a', function (newValue, oldValue) {
+			alert(vm.a)
+		})
+
+
+
+	</script>
+</body>
+
+</html>

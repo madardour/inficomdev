@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{F59C30A7-E594-4AA7-851A-F7A805CF4E8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{B135B57D-9668-4701-B70B-6579DC875394}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inficom.Cursus.Data", "Inficom.Cursus.Data\Inficom.Cursus.Data.csproj", "{F5C72509-F9DC-4ACD-9353-F5A2F6B49D10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inficom.Cursus.Api", "Inficom.Cursus.Api\Inficom.Cursus.Api.csproj", "{1BAC06EC-A979-4886-9EAD-3EDAC5685C09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inficom.Cursus.Mvc", "Inficom.Cursus.Mvc\Inficom.Cursus.Mvc.csproj", "{F367B2B4-9087-406B-B355-A581FCDFB4E2}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Inficom.Cursus.Vue", "Inficom.Cursus.Vue\Inficom.Cursus.Vue.njsproj", "{2607E7B8-6392-41F8-9DEE-0BC8461CB735}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5C72509-F9DC-4ACD-9353-F5A2F6B49D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C72509-F9DC-4ACD-9353-F5A2F6B49D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C72509-F9DC-4ACD-9353-F5A2F6B49D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C72509-F9DC-4ACD-9353-F5A2F6B49D10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BAC06EC-A979-4886-9EAD-3EDAC5685C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAC06EC-A979-4886-9EAD-3EDAC5685C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAC06EC-A979-4886-9EAD-3EDAC5685C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAC06EC-A979-4886-9EAD-3EDAC5685C09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F367B2B4-9087-406B-B355-A581FCDFB4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F367B2B4-9087-406B-B355-A581FCDFB4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F367B2B4-9087-406B-B355-A581FCDFB4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F367B2B4-9087-406B-B355-A581FCDFB4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2607E7B8-6392-41F8-9DEE-0BC8461CB735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2607E7B8-6392-41F8-9DEE-0BC8461CB735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2607E7B8-6392-41F8-9DEE-0BC8461CB735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2607E7B8-6392-41F8-9DEE-0BC8461CB735}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F5C72509-F9DC-4ACD-9353-F5A2F6B49D10} = {F59C30A7-E594-4AA7-851A-F7A805CF4E8A}
+		{1BAC06EC-A979-4886-9EAD-3EDAC5685C09} = {F59C30A7-E594-4AA7-851A-F7A805CF4E8A}
+		{F367B2B4-9087-406B-B355-A581FCDFB4E2} = {B135B57D-9668-4701-B70B-6579DC875394}
+		{2607E7B8-6392-41F8-9DEE-0BC8461CB735} = {B135B57D-9668-4701-B70B-6579DC875394}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AAA0BCE-9D39-469C-B460-6B0740269CA4}
+	EndGlobalSection
+EndGlobal

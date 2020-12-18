@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inficom.Learning.Api", "Inficom.Learning.Api\Inficom.Learning.Api.csproj", "{16BA51B1-4BBF-485B-AF07-A0CC73A05CE4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{80D5F754-B33E-4723-87F6-C78105A29A8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Items", "_Items", "{4D6D0C3A-86C5-4818-BF55-012E7E17F356}"
@@ -25,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inficom.Learning.Services",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inficom.Learning.Angular", "Inficom.Learning.Angular\Inficom.Learning.Angular.csproj", "{48D41E84-BFF1-44F5-A77E-9F1EA20D1E9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inficom.Learning.Mvc", "Inficom.Learning.Mvc\Inficom.Learning.Mvc.csproj", "{6CA28254-550F-4ACA-97EA-6D0141A53F96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inficom.Learning.Mvc", "Inficom.Learning.Mvc\Inficom.Learning.Mvc.csproj", "{6CA28254-550F-4ACA-97EA-6D0141A53F96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{16BA51B1-4BBF-485B-AF07-A0CC73A05CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16BA51B1-4BBF-485B-AF07-A0CC73A05CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16BA51B1-4BBF-485B-AF07-A0CC73A05CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16BA51B1-4BBF-485B-AF07-A0CC73A05CE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B8A6733B-3C66-4828-85CA-B12CFBC5ECDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8A6733B-3C66-4828-85CA-B12CFBC5ECDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A6733B-3C66-4828-85CA-B12CFBC5ECDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,7 +56,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{16BA51B1-4BBF-485B-AF07-A0CC73A05CE4} = {80D5F754-B33E-4723-87F6-C78105A29A8D}
 		{B8A6733B-3C66-4828-85CA-B12CFBC5ECDF} = {80D5F754-B33E-4723-87F6-C78105A29A8D}
 		{F6EAA203-2537-4582-A8D5-492DBEF79778} = {80D5F754-B33E-4723-87F6-C78105A29A8D}
 		{8A19A2D3-ED29-44AF-AFE3-8174A0D36EF7} = {80D5F754-B33E-4723-87F6-C78105A29A8D}
@@ -71,35 +64,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D59781F6-9DF9-4ED2-8809-BEA0D1934361}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ttab.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Inficom.Learning.Api\\Inficom.Learning.Api.csproj
-		SccProjectTopLevelParentUniqueName1 = Inficom.Learning.sln
-		SccProjectName1 = Inficom.Learning.Api
-		SccLocalPath1 = Inficom.Learning.Api
-		SccProjectUniqueName2 = Inficom.Learning.Data\\Inficom.Learning.Data.csproj
-		SccProjectTopLevelParentUniqueName2 = Inficom.Learning.sln
-		SccProjectName2 = Inficom.Learning.Data
-		SccLocalPath2 = Inficom.Learning.Data
-		SccProjectUniqueName3 = Inficom.Learning.Domain\\Inficom.Learning.Domain.csproj
-		SccProjectTopLevelParentUniqueName3 = Inficom.Learning.sln
-		SccProjectName3 = Inficom.Learning.Domain
-		SccLocalPath3 = Inficom.Learning.Domain
-		SccProjectUniqueName4 = Inficom.Learning.Services\\Inficom.Learning.Services.csproj
-		SccProjectTopLevelParentUniqueName4 = Inficom.Learning.sln
-		SccProjectName4 = Inficom.Learning.Services
-		SccLocalPath4 = Inficom.Learning.Services
-		SccProjectUniqueName5 = Inficom.Learning.Angular\\Inficom.Learning.Angular.csproj
-		SccProjectTopLevelParentUniqueName5 = Inficom.Learning.sln
-		SccProjectName5 = Inficom.Learning.Angular
-		SccLocalPath5 = Inficom.Learning.Angular
-		SccProjectUniqueName6 = Inficom.Learning.Mvc\\Inficom.Learning.Mvc.csproj
-		SccProjectTopLevelParentUniqueName6 = Inficom.Learning.sln
-		SccProjectName6 = Inficom.Learning.Mvc
-		SccLocalPath6 = Inficom.Learning.Mvc
 	EndGlobalSection
 EndGlobal

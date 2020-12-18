@@ -1,0 +1,53 @@
+Installatie/Configuratie van eslint en prettier
+
+Visual Studio 2019 en VS Code.
+
+1. Installeer de volgende packages met deze command:
+ - npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
+ 
+2. Maak een bestand aan met de naam .prettierrc in de map client-app. Met deze inhoud:
+
+{
+    "printWidth": 80,
+    "singleQuote": true,
+    "semi": true,
+    "tabWidth": 2,
+    "trailingComma": "none"
+}
+
+3. Maak een bestand aan met de naam .eslintrc.json in de map client-app/src. Met deze inhoud:
+{
+    "extends": ["prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+      "prettier/prettier": "error",
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+}
+
+4. Configuratie in VS Code
+
+	a. Installeer ESlint extention.
+	b. Installeer Prettier - Code Formatter (Via instelling de juiste configuratie aanzetten).
+	c. OPTIONAL: npm install --save fecha vue-date-pick
+
+5. Configuratie in Visual Studio 2019
+	a. Installeer 'NPM Task Runner' extention (Extiontions > manage extentions)
+		Deze scant alleen de rootfolder. De client-app is een subfolder.
+	b. Workarround: maak een bestand aan met de naam package.json in de rootfolder van de RAPTOR project. Met deze inhoud:
+	
+{
+  "scripts": {
+    "serve": "cd client-app && vue-cli-service serve",
+    "build": "cd client-app && vue-cli-service build"
+  },
+  "-vs-binding": {
+    "BeforeBuild": [
+      "build"
+    ]
+  }
+}
+	
+	
+Klaar.

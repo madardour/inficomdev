@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Inficom.Cursus.Mvc.Models.ProductModel>
+
+@{
+    ViewData["Title"] = "Productlist";
+}
+
+<h3 class="bg-primary p-2 text-white text-center">
+    product list
+</h3>
+<div class="container-fluid">
+    <div class="row p-1">
+        <div class="col font-weight-bold">ProductId</div>
+        <div class="col font-weight-bold">Productname</div>
+    </div>
+    @foreach (ProductModel p in Model)
+    {
+        <div class="row p-1">
+            <div class="col">@p.ProductId</div>
+            <div class="col">@p.ProductName</div>
+        </div>
+    }
+</div>

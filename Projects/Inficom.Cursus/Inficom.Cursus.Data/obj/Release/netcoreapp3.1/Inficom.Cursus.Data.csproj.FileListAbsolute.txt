@@ -1,0 +1,10 @@
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\bin\Release\netcoreapp3.1\Inficom.Cursus.Data.deps.json
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\bin\Release\netcoreapp3.1\Inficom.Cursus.Data.runtimeconfig.json
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\bin\Release\netcoreapp3.1\Inficom.Cursus.Data.runtimeconfig.dev.json
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\bin\Release\netcoreapp3.1\Inficom.Cursus.Data.dll
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\bin\Release\netcoreapp3.1\Inficom.Cursus.Data.pdb
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\obj\Release\netcoreapp3.1\Inficom.Cursus.Data.csprojAssemblyReference.cache
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\obj\Release\netcoreapp3.1\Inficom.Cursus.Data.AssemblyInfoInputs.cache
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\obj\Release\netcoreapp3.1\Inficom.Cursus.Data.AssemblyInfo.cs
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\obj\Release\netcoreapp3.1\Inficom.Cursus.Data.dll
+E:\Users\Mad\Inficom\Projects\Inficom.Cursus\Inficom.Cursus.Data\obj\Release\netcoreapp3.1\Inficom.Cursus.Data.pdb

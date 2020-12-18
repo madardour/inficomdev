@@ -24,12 +24,12 @@ namespace Inficom.Mvc5.Repositories
 
         public Employee GetById(int? id)
         {
-            return _context.Employees.Find(id);
+            return null; //_context.Employees.Find(id);
         }
 
         public IEnumerable<Employee> GetEmployees()
         {
-            return _context.Employees;
+            return null; // _context.Employees;
         }
 
         public async Task<Employee> AddAsync(Employee employee)

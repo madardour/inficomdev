@@ -1,0 +1,574 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" version="46.2">
+	<xs:element name="DataBRaVo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="BRaVoCase">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" type="xs:string" name="caseId" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="PuikIdBeambte" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="PDCDocumentnaam" default="#"/>							
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean" default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="CTRL_PDC">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" type="xs:string" name="COMMAND" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="HOLDTIME" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="xsd_versie" default="#"/>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean" default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="DocumentClassificatie">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ClassificatieEaedCode">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="CdClassificatie" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean" default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="SMF_LAUNCH">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" type="xs:string" name="simCasusId" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="LaunchCode" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="teamnr" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="gemeentenaam" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="datumOntvangstAanvraag" default="#"/>
+						</xs:sequence>
+					    <xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="REKEN">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IKV" maxOccurs="unbounded" minOccurs="0">
+								<!--INKOMSTENVERHOUDING-->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="admin_eenheid_naam" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="loonheffingennr" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="datum_aanvang" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="datum_einde" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="code_tijdvak" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="tijdvakken_ref" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="tijdvakken_gewerkt" default="#"/>
+										<xs:element minOccurs="0" name="INDEX"> 
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="aanvang_index" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="aanvang_maand" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="aanvang_jaar" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="aanvang_basisjaar" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="huidig_index" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="huidig_maand" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="huidig_jaar" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="huidig_basisjaar" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="MM">
+											<!--MAATMAN-->
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="uurloon" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uurloon_ongeindexeerd" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uurloon_tussen" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uren_pw" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sv_loon_ref" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sv_dagen_aantal_ref" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uren_aantal_ref" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="vak_toeslag_ref" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="vak_toeslag_opbouw_ref" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sal_extra_ref" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sal_extra_opbouw_ref" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="correctie" default="#"/>
+												</xs:sequence>
+												<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OPGAVE" maxOccurs="unbounded" minOccurs="0"> 
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="datum_aanvang" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="datum_einde" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sv_dagen_aantal" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sv_loon" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uren_aantal" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="vak_toeslag" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="vak_toeslag_opbouw" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sal_extra" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="sal_extra_opbouw" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="toelichting" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="indicatie_maatgevend" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="SMM">
+								<!--SAMENGESTELDE MAATMAN-->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="uurloon" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="uren_pw" default="#"/>
+									</xs:sequence>
+									<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="HMM">
+								<!--HERINDEXERING MAATMAN-->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="uurloon_his" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="uurloon_his_index" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="uurloon_tussen_index" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="uren_pw_his" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="aanvang_index" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="huidig_index" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="HB">
+								<!--HERBEOORDELING-->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="uurloon" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="uren_pw" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="indicatie_herbeoordeling" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="geschikt_maatgevend" default="#"/>
+									</xs:sequence>
+									<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="PVC">
+								<!--PRAKTISCHE VERDIENCAPACITEIT-->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="bedrag_pm" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="bedrag_pu" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="uren_pw" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="ao_pct_afgekapt" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="reductie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="bedrag_pu_zonder_reductie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="nieuwe_functie" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="huidige_werkgever" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="passend" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="RVC">
+								<!--RESTERENDE VERDIENCAPACITEIT-->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="bedrag_pm" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="bedrag_pu" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="pct" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="ao_pct_afgekapt" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="code" default="#"/>
+									</xs:sequence>
+									<xs:attribute name="DocMetadata" type="xs:boolean" default="true"/>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="TVC">
+								<!--THEORETISCHE VERDIENCAPACITEIT-->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="uren_pw" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="bedrag_pu" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="uurloon_mediaan" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="urenbeperking_pct" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="reductie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="ao_pct_afgekapt" default="#"/>
+										<xs:element name="SBC" maxOccurs="unbounded" minOccurs="0"> 
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="code" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="omschrijving" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uurloon" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="arbeidsplaatsen" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="reductiefactor" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+					</xs:complexType>
+				</xs:element>
+
+
+				<xs:element minOccurs="0" name="KANTOOR">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ADRES">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="RETOUR">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="regel_1" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="regel_2" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="regel_3" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="PERSOON"> 
+					<xs:complexType>
+					
+						<xs:sequence>
+							<xs:element minOccurs="0" type="xs:string" name="bsn" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="voorletters" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="voorvoegsel" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="achternaam" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="geslacht" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="geboortedatum" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="woonplaats" default="#"/>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="WERKGEVER">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" type="xs:string" name="naam" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="eigen_risicodrager" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="contactpersoon" default="#"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="FUNCTIONARIS">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" type="xs:string" name="naam" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="rol" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="afdeling" default="#"/>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="ONDERTEKENAAR">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" type="xs:string" name="naam" default="#"/>
+							<xs:element minOccurs="0" type="xs:string" name="rol" default="#"/>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="HI"> 
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="STAGES">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="VERLEDEN" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="periode" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="werkgever" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uren_pw" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="functie" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="ARBEID_UITKERING">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="VERLEDEN" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="periode" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="werkgever" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="uren_pw" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="functie" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="OPLEIDINGEN">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="GEVOLGD" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="periode" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="opleiding" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="resultaat" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="OVERIG">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="VAARDIGHEDEN" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" type="xs:string" name="omschrijving" default="#"/>
+													<xs:element minOccurs="0" type="xs:string" name="mate" default="#"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="DocMetadata" type="xs:boolean"   default="true" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="AL">
+					<!-- ALgemene docs en gemeenschappelijke data AD en ME-->
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="VAR">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="datum" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="organisatie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="evaluatie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="datum_beperking" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="begeleider" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="verzekeringsarts" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="arbeidsdeskundige" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="dummy" default="#"/>
+										<!--cases nivo voor AD en ME -->
+										<xs:element minOccurs="0" type="xs:string" name="eerste_ao_dag" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="einde_wachttijd" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="rapportdatum" default="#"/>
+										</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="VT">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="betreft" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="gebeld_met" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="inhoud" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="conclusie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="planning" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="vraagstelling" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="dummy" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="ME">
+					<!-- MEdische documenten -->
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="VAR">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="datum" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="visie_van" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="reactie_van" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="info_expertise" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="VT">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="betreft" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="gebeld_met" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="vraagstelling" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="inhoud_gesprek" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="onderzoeksactiviteiten" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="onderzoeksgegevens" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="visie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="beschouwing" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="informatie_derden" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="prognose" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="conclusie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="planning" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="reactie_klant" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="cosignering" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="algemeen" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="werk_anamnese" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="sociale_anamnese" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="functioneren" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="dagverhaal" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="aanleiding" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="verzoek" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>	
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" name="GEHEIM">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="VAR">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="DIAGNOSE">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="CODE" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" type="xs:string" name="oorzaak" default="#"/>
+																<xs:element minOccurs="0" type="xs:string" name="code" default="#"/>
+																<xs:element minOccurs="0" type="xs:string" name="omschrijving" default="#"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="VT">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" type="xs:string" name="onderzoeksgegevens" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="psychisch_onderzoek" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="lichamelijk_onderzoek" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="informatie_derden" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="beschouwing" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="anamnese" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="algemene_indruk" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="medisch" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="medische_anamnese" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="AD">
+					<!-- ArbeidsDeskundige documenten -->
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="VAR">
+								<xs:complexType>
+									<xs:sequence>
+										<!-- Verzoek om Informatie-->
+										<xs:element minOccurs="0" type="xs:string" name="soort_beoordeling" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="organisatie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="organisatie_naam" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="organisatie_functie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="urenbeperking_pw" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="urenbeperking_pd" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="index_grensmaand_nieuw" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="index_grensmaand_oud" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="datum" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="maatgevende_functie" default="#"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="VT">
+								<xs:complexType>
+									<xs:sequence>
+										<!--Voorblad-->
+										<xs:element minOccurs="0" type="xs:string" name="vb_waarom" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="vb_beoordelen" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="vb_onderdelen" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="vb_aanleiding" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="vb_vraag" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="vb_antwoord" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="vb_toelichting" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="vb_reactie" default="#"/> 
+										<!--Verzoek om Informatie-->
+										<xs:element minOccurs="0" type="xs:string" name="verzoek_informatie" default="#"/> 
+										<!--Gespreksverslag-->
+										<xs:element minOccurs="0" type="xs:string" name="aanleiding" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="besproken" default="#"/>
+										<!--Body-->
+										<xs:element minOccurs="0" type="xs:string" name="onderzoeksvraag" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="onderzoeksactiviteiten" default="#"/> 
+										<!--Gegevens uit onderzoek -->
+										<xs:element minOccurs="0" type="xs:string" name="gegevens_intake" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="visie_va" default="#"/>    
+										<xs:element minOccurs="0" type="xs:string" name="visie_klant" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="visie_werkgever" default="#"/> 
+										<xs:element minOccurs="0" type="xs:string" name="gegevens_derden" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="maatgevende_arbeid" default="#"/>
+										<!--Analyse arbeidsvermogen-->
+										<xs:element minOccurs="0" type="xs:string" name="voorwaarden_werk" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="voorwaarden_werkomgeving" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="ontwikkeling_arbeidsvermogen" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="vinden_werk" default="#"/>
+										<!--Beschouwing-->
+										<xs:element minOccurs="0" type="xs:string" name="werksoorten" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="onderbouwing" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="werknemersvaardigheden" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="antwoord_vraag_van_va" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="participatie" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="aanpassing" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="begeleiding" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="persoonsprofiel" default="#"/>
+										<!--Beoordeling-->
+										<xs:element minOccurs="0" type="xs:string" name="beoordeling" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="gerealiseerde_arbeid" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="gangbare_arbeid" default="#"/>
+										<xs:element minOccurs="0" type="xs:string" name="ao_berekening" default="#"/>
+										<!--Conclusie-->
+										<xs:element minOccurs="0" type="xs:string" name="conclusie" default="#"/>
+										<!--Bijlage-->
+										<xs:element minOccurs="0" type="xs:string" name="bl_maatmanloon" default="#"/>
+
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

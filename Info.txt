@@ -1,0 +1,79 @@
+CHECK DEZE voor baserepo : https://github.com/andreluizsecco/AspNetCore.BookStore/blob/master/src/AspNetCore.Bookstore.Data/Repositories/RepositoryBase.cs
+
+
+Learning Guide:
+. Onion architecture and Repository pattern
+	- http://www.c-sharpcorner.com/article/creating-web-api-with-repository-pattern-and-dependency-injection/
+	- https://www.codeproject.com/Articles/1192403/Architecting-Web-API-Project-With-Repository-Layer
+
+. Entity Framework (Database first approach)
+	- https://docs.microsoft.com/en-us/ef/core/get-started/aspnetcore/existing-db
+
+. SPA templates in VS2017, JavascriptServices for .net core (for creating angular projects)
+	- install .net core sdk 2.0
+	- Create Angular project
+	- Issue in IE: http://kosmisch.net/Blog/DotNetEssential/Archive/2017/5/20/issue-unable-to-get-property-apply-of-undefined-or-null-reference-occurred-in-angular-4-vs2017-153-aspnet-core-20.html
+
+. Angular
+	- https://www.youtube.com/playlist?list=PL6n9fhu94yhWqGD8BuKuX-VTKqlNBj-m6
+	- https://www.codeproject.com/Articles/1181888/Angular-in-ASP-NET-MVC-Web-API-Part
+
+. Angular CLI
+	- http://candordeveloper.com/2017/04/12/how-to-use-angular-cli-with-visual-studio-2017/
+	- https://www.codeproject.com/Articles/1193423/Integrating-Angular-CLI-With-Visual-Studio-Profess
+
+. Development time IIS support
+	- https://blogs.msdn.microsoft.com/webdev/2017/07/13/development-time-iis-support-for-asp-net-core-applications/
+	- https://weblog.west-wind.com/posts/2016/Jun/06/Publishing-and-Running-ASPNET-Core-Applications-with-IIS
+
+. Visual Studio Code - Debugger for Chrome (Angular app debug)
+	- https://github.com/Microsoft/vscode-chrome-debug
+
+. API testtool Swagger
+	- https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio-code%2Cnetcore-cli
+
+. CRUD operations in Angular
+	- https://www.codeproject.com/Articles/1197953/CRUD-Operation-using-ASP-NET-CORE-and-Angular-with
+
+. Enabling Cross-Origin Requests (CORS)
+	- https://docs.microsoft.com/en-us/aspnet/core/security/cors
+
+===============================================================================================
+Serverside:
+-----------
+Enterprise Application Architecture (Onion architecture)
+ASP.NET MVC / Core
+ASP.NET WEB API
+  Test tools: Swagger, SoapUI, Fiddler, Postman
+Entity Framework / NHibernate 
+Independency Intejection
+  Ninject, Unity, Autofac, Spring.net, StuctureMap
+	
+Nuget
+Hangfire
+Identity Framework
+Log4net, NLog
+Unittests
+AutoMapper
+
+Clientside:
+----------
+Kendo UI
+Angular
+Angular CLI (command line interface) 
+React
+Moment library
+underscroe library
+front-awesome
+
+
+Meer:
+-----
+Repository Pattern in ASP.NET MVC
+Object/Relational Mapping (ORM) 
+Test-Driven Development (TDD)
+Secure coding
+
+Angular command:
+----------------
+Compile: webpack --config webpack.config.js

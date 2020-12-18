@@ -41,9 +41,17 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ModusApi, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Git\Service-DocumentCleanup\SharedLibraries\ModusApi.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenXmlTools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Git\Bravo\OpenXmlTools\OpenXmlTools\bin\Debug\OpenXmlTools.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -61,18 +69,19 @@
     <Reference Include="System.Xml" />
     <Reference Include="UWV.BRAVO.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\svn\trunk\UWV.BRAVO\UWV.BRAVO.RAPTOR\bin\UWV.BRAVO.DAL.dll</HintPath>
+      <HintPath>..\..\..\..\Git\Bravo\UWV.BRAVO.RAPTOR\bin\UWV.BRAVO.DAL.dll</HintPath>
     </Reference>
     <Reference Include="UWV.BRAVO.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\svn\trunk\UWV.BRAVO\UWV.BRAVO.RAPTOR\bin\UWV.BRAVO.Domain.dll</HintPath>
+      <HintPath>..\..\..\..\Git\Bravo\UWV.BRAVO.RAPTOR\bin\UWV.BRAVO.Domain.dll</HintPath>
     </Reference>
-    <Reference Include="UWV.BRAVO.RAPTOR, Version=1.1.60.9, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UWV.BRAVO.RAPTOR, Version=1.1.71.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\svn\trunk\UWV.BRAVO\UWV.BRAVO.RAPTOR\bin\UWV.BRAVO.RAPTOR.dll</HintPath>
+      <HintPath>..\..\..\..\Git\Bravo\UWV.BRAVO.RAPTOR\bin\UWV.BRAVO.RAPTOR.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountingList.cs" />
     <Compile Include="EncryptionUtilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,10 +90,21 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="DataBraVo.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DocumentXmlVariables.xml" />
+    <Content Include="Xml\DocumentXmlVariables_2.xml" />
+    <Content Include="Xml\DocumentXmlVariables_1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EF\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
